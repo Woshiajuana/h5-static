@@ -7,9 +7,6 @@ body,
     @extend %h100;
 }
 .app{
-    width: 300px;
-    margin-top: 30px;
-    margin-left: 30px;
     div{
         @extend %bsb;
         border: 1px red solid;
