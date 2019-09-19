@@ -7,7 +7,7 @@ import Puzzle                       from './puzzle'
 // 控制器
 const Controller = {
     init () {
-
+        $('.app').puzzle().start();
     }
 };
 Controller.init();
