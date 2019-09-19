@@ -1,0 +1,19 @@
+<view class="wrap">
+    <view class="table"
+          bindtouchstart="handleTouchStart"
+          bindtouchmove="handleTouchMove"
+          bindtouchend="handleTouchEnd">
+        <view class="tr"
+              wx:for="{{arrArrJigSaw}}"
+              wx:for-item="arrJigSaw"
+              wx:for-index="arrJigSawIndex"
+              wx:key="arrJigSawIndex">
+            <view class="td"
+                  wx:for="{{arrJigSaw}}"
+                  wx:key="index"
+                  style="width: {{item.width}}px; height: {{item.height}}px; top: {{item.top}}px; left: {{item.left}}px; background:url({{item.url}}) no-repeat {{item.urlX}}px {{item.urlY}}px/{{item.windowWidth}}px {{item.windowHeight}}px"
+            ></view>
+        </view>
+        <view class="td" style="width: {{objCurrent.width}}px; height: {{objCurrent.height}}px; top: {{objCurrent.top}}px; left: {{objCurrent.left}}px; background:url({{objCurrent.url}}) no-repeat {{objCurrent.urlX}}px {{objCurrent.urlY}}px/{{objCurrent.windowWidth}}px {{objCurrent.windowHeight}}px"></view>
+    </view>
+</view>

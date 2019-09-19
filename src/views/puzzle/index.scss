@@ -6,3 +6,9 @@ body,
     @extend %w100;
     @extend %h100;
 }
+.app{
+    div{
+        @extend %bsb;
+        border: 1px red solid;
+    }
+}
