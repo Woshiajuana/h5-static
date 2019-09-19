@@ -177,16 +177,18 @@ class Puzzle {
                     strHtml += `<div style="position: absolute; width: ${width}px; height: ${height}px; top: ${top}px; left: ${left}px; background: url(${url}) no-repeat ${urlX}px ${urlY}px/${this.numElWidth}px ${this.numElHeight}px"></div>`;
                 })
             });
-            strHtml += `<div class="cur" style=""></div>`;
+            strHtml += `<div class="cur" style="position: absolute; width: ${width}px; height: ${height}px; top: ${top}px; left: ${left}px; background: url(${url}) no-repeat ${urlX}px ${urlY}px/${this.numElWidth}px ${this.numElHeight}px"></div>`;
 
             this.$el.html(strHtml);
+
+        } else {
+            let { url, width, height, top, left, urlX, urlY } = objCurrent;
+            console.log(urlY, urlX)
+            this.$el.find('.cur').css({ top: top + 'px', left: left + 'px' });
 
         }
 
 
-        let { url, width, height, top, left, urlX, urlY } = objCurrent;
-        console.log(urlY, urlX)
-        this.$el.find('.cur').attr('style', `position: absolute; width: ${width}px; height: ${height}px; top: ${top}px; left: ${left}px; background: url(${url}) no-repeat ${urlX}px ${urlY}px/${this.numElWidth}px ${this.numElHeight}px`);
     }
 
 }
