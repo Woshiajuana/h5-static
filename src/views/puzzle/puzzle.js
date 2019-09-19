@@ -8,6 +8,7 @@ class Puzzle {
             xAxis: 3,
             yAxis: 3,
             url: 'https://img1.mukewang.com/szimg/5d1032ab08719e0906000338.jpg',
+            successCallback: () => { console.log('成功了') },
         }, options);
         this.init();
     }
@@ -15,11 +16,14 @@ class Puzzle {
     init () {
         this.numElWidth = this.$el.width();
         this.numElHeight = this.$el.height();
-        this.numOffsetTop = this.$el.offset().top;
-        this.numOffsetLeft = this.$el.offset().left;
+        // this.numOffsetTop = this.$el.offset().top;
+        // this.numOffsetLeft = this.$el.offset().left;
         this.$el.on('touchstart', this.handleTouchStart.bind(this))
             .on('touchmove', this.handleTouchMove.bind(this))
             .on('touchend', this.handleTouchEnd.bind(this));
+        document.body.addEventListener('touchmove', function (e) {
+            e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+        }, {passive: false}); //passive 参数不能省略，用来兼容ios和android
     }
 
     handleTouchStart (event) {
@@ -49,12 +53,15 @@ class Puzzle {
         let {
             numWidth,
             numHeight,
+
         } = this;
         let {
             orgTop,
             orgLeft,
             orgPageX,
             orgPageY,
+            // numOffsetTop,
+            // numOffsetLeft,
         } = this.objCurrent;
         let x = parseInt(pageX / numWidth);
         let y = parseInt(pageY / numHeight);
@@ -86,15 +93,21 @@ class Puzzle {
             objStart.urlY = objEnd.urlY;
             objEnd.urlX = objCurrent.urlX;
             objEnd.urlY = objCurrent.urlY;
-            objCurrent = objEnd;
+            this.objCurrent = objEnd;
         } else {
-            objCurrent = objStart;
+            this.objCurrent = objStart;
         }
-        this.render();
+        this.render(true);
+
+        if (JSON.stringify(arrArrJigSaw) === this.strResult) {
+            this.options.successCallback(this);
+        }
     }
 
     start (options = {}) {
         this.options = Object.assign({}, this.options, options);
+        let { xAxis, yAxis } = this.options;
+        if (xAxis + yAxis < 4) throw '初始化错误';
         this.generate();
         this.render(true);
     }
@@ -169,7 +182,7 @@ class Puzzle {
             objCurrent,
         } = this;
         let strHtml = '';
-
+        let { url, width, height, top, left, urlX, urlY } = objCurrent;
         if (type) {
             arrArrJigSaw.forEach((arrJigSaw) => {
                 arrJigSaw.forEach((item) => {
@@ -182,13 +195,8 @@ class Puzzle {
             this.$el.html(strHtml);
 
         } else {
-            let { url, width, height, top, left, urlX, urlY } = objCurrent;
-            console.log(urlY, urlX)
             this.$el.find('.cur').css({ top: top + 'px', left: left + 'px' });
-
         }
-
-
     }
 
 }
