@@ -58,6 +58,7 @@ class Puzzle {
         this.objCurrent.orgPageY = pageY;
         this.objStartPosition = { x, y };
         this.objEndPosition = { x, y };
+        this.render();
     }
 
     handleTouchMove (event) {
@@ -218,7 +219,7 @@ class Puzzle {
             this.$el.html(strHtml);
 
         } else {
-            this.$el.find('.cur').css({ top: top + 'px', left: left + 'px' });
+            this.$el.find('.cur').prop('style', `position: absolute; width: ${width}px; height: ${height}px; top: ${top}px; left: ${left}px; background: url(${url}) no-repeat ${urlX}px ${urlY}px/${this.numElWidth}px ${this.numElHeight}px`);
         }
     }
 

@@ -13,8 +13,8 @@ const Controller = {
         this.initPuzzle();
     },
     countTimer (num = 1500) {
-        if (num < 0)
-            return this.lostCallback();
+        // if (num < 0)
+        //     return this.lostCallback();
         let arr = num.toString().split('').reverse();
         let strHtml = `
         <span>0</span>
