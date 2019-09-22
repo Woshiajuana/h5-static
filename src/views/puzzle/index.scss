@@ -54,7 +54,18 @@ body{
     border-top: j(1) #fff solid;
     border-bottom: j(1) #fff solid;
     div {
+        @extend %pr;
         @extend %bsb;
         border: j(1) #fff solid;
+        //&:after{
+        //    content: '';
+        //    @extend %pa;
+        //    @extend %t0;
+        //    @extend %l0;
+        //    @extend %r0;
+        //    @extend %b0;
+        //    background-color: #a7d6f1;
+        //    opacity: 0.6;
+        //}
     }
 }

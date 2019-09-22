@@ -29,10 +29,9 @@ const Controller = {
         this.timer = setTimeout(this.countTimer.bind(this), 50, num - 5);
     },
     initPuzzle () {
-        let level = 2;
         this.puzzle = $('.main').puzzle({
-            xAxis: level,
-            yAxis: level,
+            xAxis: 3,
+            yAxis: 2,
             url: 'assets/images/puzzle.jpg',
             successCallback: this.winCallback.bind(this),
             touchStartCallback: (puzzle) => { if (puzzle.disabled) this.lostCallback(); },
@@ -46,6 +45,7 @@ const Controller = {
     },
     winCallback () {
         clearTimeout(this.timer);
+        this.puzzle.stop();
         setTimeout(() => {
             Toast.confirm('恭喜您赢了，再来一局？').then(() => {
                 this.countTimer();
