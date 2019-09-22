@@ -21,7 +21,7 @@ const entry = walk.run(entryDirName, 'views');
 
 const urlLoader = {
     limit: '1024',
-    outputPath: 'assets/',
+    outputPath: '/',
     publicPath: '../',
     name: 'images/[name].[ext]'
 };
@@ -126,7 +126,7 @@ let webpackConfig = {
 };
 for (let key in entry) {
     const htmlPlugin = new HtmlWebpackPlugin({
-        filename: `${key}.html`,
+        filename: `html/${key}.html`,
         template: entry[key].replace('entry.js', 'index.html'),
         minify: { removeAttributeQuotes: true },
         chunks: [key],

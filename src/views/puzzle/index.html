@@ -17,6 +17,67 @@
         <div class="main"></div>
     </div>
     <script src="assets/lib/zepto.min.js"></script>
+    <script>
+        $(function () {
+            var Controller = {
+                init: function () {
+                    this.countTimer();
+                    this.initPuzzle();
+                },
+                countTimer: function (num = 1500) {
+                    if (num < 0) return this.lostCallback();
+                    var arr = num.toString().split('').reverse();
+                    var strHtml = '<span>0</span> ' +
+                        '<span>0</span> ' +
+                        '<i>:</i> ' +
+                        '<span>'+ (arr[3] || 0) +'</span> ' +
+                        '<span>'+ (arr[2] || 0) +'</span> ' +
+                        '<i>:</i> ' +
+                        '<span>'+ (arr[1] || 0) +'</span> ' +
+                        '<span>'+ (arr[0] || 0) + '</span>';
+                    $('.timer').html(strHtml);
+                    this.timer = setTimeout(this.countTimer.bind(this), 50, num - 5);
+                },
+                initPuzzle: function () {
+                    var that = this;
+                    // start 方法的参数会覆盖初始化的参数
+                    // $el.puzzle(options).start(options)
+                    // puzzle 方法只需调用一次返回 puzzle 实例对象，后续可以用这
+                    // 个对象取初始话参数 let puzzle = $('.app').puzzle(options); puzzle.start(options);
+                    this.puzzle = $('.main').puzzle({
+                        xAxis: 2,
+                        yAxis: 2,
+                        url: 'assets/images/puzzle.jpg',
+                        successCallback: this.winCallback.bind(this),
+                        touchStartCallback: function (puzzle) {
+                            if (puzzle.disabled) that.lostCallback();
+                        },
+                    }).start();
+                },
+                lostCallback () {
+                    var that = this;
+                    toast.confirm('不服再战一局？').then(function () {
+                        that.countTimer();
+                        that.puzzle.start();
+                    }).catch(function () {
+                        that.puzzle.stop();
+                    });
+                },
+                winCallback () {
+                    clearTimeout(this.timer);
+                    this.puzzle.stop();
+                    var that = this;
+                    setTimeout(function () {
+                        toast.confirm('恭喜您赢了，再来一局？').then(function () {
+                            that.countTimer();
+                            that.puzzle.start();
+                        }).null();
+                    }, 300);
+                },
+            };
+            Controller.init();
+        });
+    </script>
 </body>
 </html>
 
