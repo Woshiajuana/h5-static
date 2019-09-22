@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <title></title>
+    <script src="assets/lib/flexible.js"></script>
+    <style>
+
+        @keyframes slowShow{
+            from{opacity:0}
+            to{opacity:1}
+        }
+        @-webkit-keyframes slowShow{ /* Safari and Chrome*/
+            from{opacity:0}
+            to{opacity:1}
+        }
+
+        @keyframes slowhideshow{
+            0%{opacity:1}
+            25%{opacity:0.2}
+            50%{opacity:1}
+            100%{opacity:1}
+        }
+        @-webkit-keyframes slowhideshow{ /* Safari and Chrome*/
+            0%{opacity:1}
+            25%{opacity:0.2}
+            50%{opacity:1}
+            100%{opacity:1}
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Start -->
+    <div style="background: url('../images/bg-1.jpg');background-size: 100% auto; background-repeat: no-repeat;position:fixed; left: 0; right: 0; top:0; bottom: 0; display: none;">
+        <div class="logo"></div>
+        <div style="animation: slowShow 2s linear 1s both;-webkit-animation: slowShow 2s linear 1s both;">
+            <div style="background: url('../images/loadingbg.png'); width: 100%; background-size: 100% auto;position: absolute;left: 0; top:0; right: 0; bottom: 0;animation: slowhideshow 4s linear 4s infinite;-webkit-animation: slowhideshow 4s linear 4s infinite;"></div>
+        </div>
+    </div>
+    <!-- Loading End -->
+    <!-- 首页 Start-->
+    <div class="mainpage mainpageon" style="display:none">
+        <div class="logo"></div>
+        <div class="maintitle"></div>
+        <div class="maintxt"></div>
+        <a href="javascript:;" class="mainbtn"></a>
+        <div class="mainpro">
+            <div></div>
+        </div>
+    </div>
+    <!-- 首页 End-->
+    <!-- 游戏进度页 -->
+    <div class="gamerulepage">
+        <div class="logo"></div>
+        <div class="maintitle"></div>
+    </div>
+    <!-- 游戏进度页 -->
+    <script src="assets/lib/zepto.min.js"></script>
+    <script>
+        $(function () {
+
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <title></title>
+    <script src="assets/lib/flexible.js"></script>
+
+</head>
+<body>
+    <div>
+        <canvas id="snakeCanvas" class="canvas"/>
+    </div>
+    <div>
+        <div>
+            <input type="button" onclick="changeDirection('left')" value="左边">
+        </div>
+        <div>
+            <input type="button" onclick="changeDirection('up')" value="上边">
+            <input type="button" id="startGame" onclick="startGameClick()" value="开始">
+            <input type="button" onclick="changeDirection('down')" value="下边">
+        </div>
+        <div>
+            <input type="button"  onclick="changeDirection('right')" value="右边">
+        </div>
+    </div>
+    <img src="" id="img">
+    <script src="assets/lib/zepto.min.js"></script>
+    <script src="assets/lib/snake.js"></script>
+</body>
+</html>
