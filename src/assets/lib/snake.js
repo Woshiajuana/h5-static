@@ -10,10 +10,10 @@ var foods= []
 //var _tmpFood = "../images/food.png"
 //var _tmpSnake = "../images/node.png"
 var _tmpFood = new Image()
-_tmpFood.src="../images/food.png"
+_tmpFood.src="assets/images/food.png"
 
 var _tmpSnake = new Image()
-_tmpSnake.src="../images/node.png"
+_tmpSnake.src="assets/images/node.png"
 
 var ctx = document.getElementById('snakeCanvas');
 var context=ctx.getContext('2d');
