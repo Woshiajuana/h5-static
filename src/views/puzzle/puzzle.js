@@ -1,14 +1,22 @@
 
+// start 方法的参数会覆盖初始化的参数
+// $el.puzzle(options).start(options)
+// puzzle 方法只需调用一次返回 puzzle 实例对象，后续可以用这个对象取初始话参数 let puzzle = $('.app').puzzle(options); puzzle.start(options);
+
 class Puzzle {
 
     constructor ($el, options = {}) {
         this.$el = $el;
         this.$el.css('position', 'relative');
+        this.disabled = false;
         this.options = Object.assign({
             xAxis: 3,
             yAxis: 3,
             url: 'https://img1.mukewang.com/szimg/5d1032ab08719e0906000338.jpg',
             successCallback: () => { console.log('成功了') },
+            touchStartCallback: () => {},
+            touchMoveCallback: () => {},
+            touchEndCallback: () => {},
         }, options);
         this.init();
     }
@@ -16,8 +24,8 @@ class Puzzle {
     init () {
         this.numElWidth = this.$el.width();
         this.numElHeight = this.$el.height();
-        // this.numOffsetTop = this.$el.offset().top;
-        // this.numOffsetLeft = this.$el.offset().left;
+        this.numOffsetTop = this.$el.offset().top;
+        this.numOffsetLeft = this.$el.offset().left;
         this.$el.on('touchstart', this.handleTouchStart.bind(this))
             .on('touchmove', this.handleTouchMove.bind(this))
             .on('touchend', this.handleTouchEnd.bind(this));
@@ -26,7 +34,13 @@ class Puzzle {
         }, {passive: false}); //passive 参数不能省略，用来兼容ios和android
     }
 
+    stop () {
+        this.disabled = true;
+    }
+
     handleTouchStart (event) {
+        this.options.touchStartCallback(this);
+        if (this.disabled) return null;
         let {
             pageX,
             pageY,
@@ -34,10 +48,11 @@ class Puzzle {
         let {
             numWidth,
             numHeight,
+            numOffsetTop,
             arrArrJigSaw,
         } = this;
         let x = parseInt(pageX / numWidth);
-        let y = parseInt(pageY / numHeight);
+        let y = parseInt((pageY - numOffsetTop) / numHeight);
         this.objCurrent = {...arrArrJigSaw[y][x]};
         this.objCurrent.orgPageX = pageX;
         this.objCurrent.orgPageY = pageY;
@@ -46,6 +61,8 @@ class Puzzle {
     }
 
     handleTouchMove (event) {
+        this.options.touchMoveCallback(this);
+        if (this.disabled) return null;
         let {
             pageX,
             pageY,
@@ -53,18 +70,16 @@ class Puzzle {
         let {
             numWidth,
             numHeight,
-
+            numOffsetTop,
         } = this;
         let {
             orgTop,
             orgLeft,
             orgPageX,
             orgPageY,
-            // numOffsetTop,
-            // numOffsetLeft,
         } = this.objCurrent;
         let x = parseInt(pageX / numWidth);
-        let y = parseInt(pageY / numHeight);
+        let y = parseInt((pageY - numOffsetTop) / numHeight);
         this.objCurrent.top = orgTop + pageY - orgPageY;
         this.objCurrent.left = orgLeft + pageX - orgPageX;
         this.objEndPosition = { x, y };
@@ -72,6 +87,8 @@ class Puzzle {
     }
 
     handleTouchEnd (event) {
+        this.options.touchEndCallback(this);
+        if (this.disabled) return null;
         let {
             objCurrent,
             objStartPosition,
@@ -86,8 +103,8 @@ class Puzzle {
             x: eX,
             y: eY,
         } = objEndPosition;
-        let objStart = arrArrJigSaw[sY][sX];
-        let objEnd = arrArrJigSaw[eY][eX];
+        let objStart = arrArrJigSaw[sY] && arrArrJigSaw[sY][sX];
+        let objEnd = arrArrJigSaw[eY] && arrArrJigSaw[eY][eX];
         if (objEnd) {
             objStart.urlX = objEnd.urlX;
             objStart.urlY = objEnd.urlY;
@@ -104,12 +121,18 @@ class Puzzle {
         }
     }
 
+    result () {
+        return JSON.stringify(this.arrArrJigSaw) === this.strResult;
+    }
+
     start (options = {}) {
+        this.disabled = false;
         this.options = Object.assign({}, this.options, options);
         let { xAxis, yAxis } = this.options;
         if (xAxis + yAxis < 4) throw '初始化错误';
         this.generate();
         this.render(true);
+        return this;
     }
 
     generate () {
