@@ -46,10 +46,12 @@ const Controller = {
     },
     winCallback () {
         clearTimeout(this.timer);
-        Toast.confirm('恭喜您赢了，再来一局？').then(() => {
-            this.countTimer();
-            this.puzzle.start();
-        }).null();
+        setTimeout(() => {
+            Toast.confirm('恭喜您赢了，再来一局？').then(() => {
+                this.countTimer();
+                this.puzzle.start();
+            }).null();
+        }, 300);
     },
 };
 Controller.init();
