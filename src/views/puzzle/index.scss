@@ -21,6 +21,7 @@ body{
     @extend %df;
     @extend %aic;
     @extend %jcc;
+    height: j(24);
     margin-top: j(180);
     span{
         @extend %df;
@@ -48,11 +49,22 @@ body{
     }
 }
 .main{
+    @extend %pr;
     @extend %w100;
     margin-top: j(10);
     height: j(368);
     border-top: j(1) #fff solid;
     border-bottom: j(1) #fff solid;
+    img{
+        @extend %pa;
+        @extend %r0;
+        @extend %t0;
+        @extend %b0;
+        @extend %w100;
+        @extend %h100;
+        border-top: j(1) #fff solid;
+        border-bottom: j(1) #fff solid;
+    }
     div {
         @extend %pr;
         @extend %bsb;
@@ -68,4 +80,76 @@ body{
         //    opacity: 0.6;
         //}
     }
+}
+.count-down{
+    @extend %dn;
+    @extend %aic;
+    @extend %jcc;
+    @extend %pf;
+    @extend %t0;
+    @extend %l0;
+    @extend %b0;
+    @extend %r0;
+    z-index: 9;
+    font-size: j(56);
+    color: #fb190e;
+    &.block{
+        @extend %df;
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+    }
+}
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+@-webkit-keyframes bounceOut {
+    20% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9);
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    50%,
+    55% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+}
+
+@keyframes bounceOut {
+    20% {
+        -webkit-transform: scale3d(0.9, 0.9, 0.9);
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    50%,
+    55% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+}
+
+.bounceOut {
+    -webkit-animation-duration: 0.75s;
+    animation-duration: 0.75s;
+    -webkit-animation-name: bounceOut;
+    animation-name: bounceOut;
 }

@@ -1,5 +1,4 @@
-
-export default {
+const Toast = {
     show () {
         let html = `<div class="pop-wrap"><span class="pop-icon"></span></div>`;
         $('body').append(html);
@@ -51,4 +50,8 @@ export default {
 
         init();
     }),
-}
+};
+
+window.toast = Toast;
+
+export default Toast;

@@ -12,11 +12,32 @@
     <script src="assets/lib/flexible.js"></script>
 </head>
 <body>
+    <div class="pop-wrap"><span class="pop-icon"></span></div>
     <div class="app">
         <div class="timer"></div>
-        <div class="main"></div>
+        <div class="main"><img src="../../assets/images/html/puzzle.jpg" alt=""></div>
     </div>
+    <div class="count-down animated bounceOut"><span>开始</span></div>
+    <div class="count-down animated bounceOut"><span>1</span></div>
+    <div class="count-down animated bounceOut"><span>2</span></div>
+    <div class="count-down animated bounceOut"><span>3</span></div>
     <script src="assets/lib/zepto.min.js"></script>
+    <script>
+        var countDown = function (arr$El, index) {
+            if (!arr$El) {
+                arr$El = $('.count-down');
+                index = arr$El.length;
+            }
+            var $el = arr$El.eq(index);
+            if (index >= 0) {
+                $el.addClass('block');
+                setTimeout(countDown, 1000, arr$El, --index);
+            } else {
+                console.log('开始游戏')
+            }
+        }
+        countDown()
+    </script>
 </body>
 </html>
 
