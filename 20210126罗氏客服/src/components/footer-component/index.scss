@@ -1,0 +1,15 @@
+
+@import '~src/assets/scss/define.scss';
+
+footer{
+    @extend %c9;
+    @extend %pf;
+    @extend %b0;
+    @extend %r0;
+    @extend %l0;
+    @extend %tac;
+    padding: j(40);
+    p{
+        font-size: j(13);
+    }
+}

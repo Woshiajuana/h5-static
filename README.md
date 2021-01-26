@@ -1,6 +1,6 @@
-# market
+# template-multi-html
 
-> APP
+> webpack 多页面打包，构建页面更方便
 
 ## Author
 
@@ -11,20 +11,23 @@
 ```
 project
 ├── build                                   // 打包脚本目录
-|   ├── webpack.config.js                   // 打包脚本
-├── cmd                                     // node命令目录
-|   ├── cmd.js
-|   ├── index.js
-|   ├── release.cmd.js
+|   ├── art-template-loader.js              // art-template loader 改写了一点东西，可以忽略一些文件。
+|   ├── utils.js                            // 工具 js
+|   ├── webpack.base.config.js              // webpack 基础配置
+|   ├── webpack.dev.config.js               // webpack 开发环境配置
+|   ├── webpack.hot.config.js               // webpack devserver 配置
+|   ├── webpack.prod.config.js              // webpack 生产环境配置
 ├── dist                                    // 打包出来的js目录（用户部署生产）
 |   ├── assets                              // 静态文件目录
 │   |   └── css                             // 样式资源
+│   |   └── images                          // 图片资源
 │   |   └── js                              // js资源
-│   |   └── image                           // 图片资源
-|   ├── [xx].html                           // 页面
+│   |   └── lib                             // 三方库资源
+│   |   └── media                           // 其他资源
+|   ├── [xxx].html                          // 页面
 ├── node_modules                            // 依赖
-├── src                                     // 项目目录
-│   ├── assets                              // 组件目录
+├── src                                     // 项目开发目录
+│   ├── assets                              // 静态资源目录
 │   ├── config                              // 项目配置目录
 │   ├── utils                               // 工具目录
 │   ├── views                               // 页面目录
@@ -39,69 +42,9 @@ project
 
 ## 操作命令
 
-> npm run serve => 启动一个本地服务
+> npm run dev   => 开发页面，自动刷新
 
-> npm run dev   => 本地打包
+> npm run build:dev  => 测试打包项目
 
-> npm run test  => 测试打包
-
-> npm run build => 生产打包
-
-> node cmd -r           [string]    =>  设置发布的环境
-> node cmd --release    [string]    =>  设置发布的环境
-
-> node cmd -c                       =>  复制lib目录
-> node cmd --copy                   =>  复制lib目录
-
-> node cmd -d                       =>  清除dist目录
-> node cmd --delete                 =>  清除dist目录
-
-
-### 样式命名
-
-> 小写英文
-> 中划线 -
-
-```
-<div class="node-demo">
-
-```
-
-### 属性命名
-
-> 小写英文
-> 下划线
-> 数组加前缀 arr
-> 节点加前缀 nd
-> 对象加前缀 obj
-> 数字加前缀 num
-> 字符加前缀 str
-> boolean   is
-
-```
-data () {
-    return {
-        arr_demo: [],
-        nd_demo: this.$refs.demo,
-        obj_demo: {},
-        num_demo: 1,
-        str_demo: 'demo',
-        is_demo: false
-    }
-}
-
-```
-
-### 方法命名
-
-> 驼峰写法，至少两个单词
-> 表用户操作加前缀 handle
-
-```
-methods: {
-    handleJump() {},
-    jumpPage(){},
-}
-
-```
+> npm run build:prod => 生产打包项目
 
