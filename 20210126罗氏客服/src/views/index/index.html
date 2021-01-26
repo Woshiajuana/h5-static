@@ -1,12 +1,46 @@
 
 {{extend 'src/layouts/layout.html'}}
 
-{{block 'title'}}template-multi-html{{/block}}
+{{block 'title'}}罗氏微信客服{{/block}}
 
 {{block 'content'}}
 
-    {{include 'src/components/header-component/index.html'}}
+<img class="logo" src="~src/assets/images/login-logo-20210126.png" alt="罗氏 Roche"/>
 
-    {{include 'src/components/footer-component/index.html'}}
+<h1 class="title">罗氏微信客服</h1>
+
+<p class="prompt">
+    罗氏微信客服将获取一下授权
+    <br/>
+    您的公开信息（昵称、头像、手机号码等）
+</p>
+
+<div class="c-flex1"></div>
+
+<div class="agreement active">
+    <i></i>
+    <span>已阅读并同意用户</span>
+    <strong>隐私协议</strong>
+</div>
+
+<button class="button">提交</button>
+
+
+<div class="popup-wrap" style="display:none;">
+    <div class="popup-inner">
+        <h2 class="popup-title">隐私协议</h2>
+        <div class="popup-content">
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+            <p>隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议隐私协议</p>
+        </div>
+        <button class="popup-button">确认</button>
+    </div>
+</div>
 
 {{/block}}

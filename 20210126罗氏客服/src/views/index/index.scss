@@ -1,3 +1,133 @@
 
 @import "~src/assets/scss/define.scss";
 @import "~src/assets/scss/reset.scss";
+
+html{
+    @extend %h100;
+}
+body{
+    @extend %h100;
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %bsb;
+    background: #6B7076 url("~src/assets/images/login-bg-20210126.jpg") center top no-repeat;
+    background-size: 100% auto;
+    padding: j(120) 0;
+    line-height: 1.6;
+}
+.logo{
+    @extend %db;
+    @extend %ma;
+    width: j(162);
+    height: j(96);
+}
+.title{
+    @extend %cfff;
+    @extend %tac;
+    margin-top: j(50);
+    font-size: j(73);
+}
+.prompt{
+    @extend %cfff;
+    @extend %tac;
+    font-size: j(32);
+    margin-top: j(60);
+}
+.c-flex1{
+    @extend %df1;
+}
+.agreement{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    @extend %cp;
+    font-size: j(28);
+    i{
+        @extend %cp;
+        @extend %br50;
+        @extend %bsb;
+        @extend %df;
+        @extend %aic;
+        @extend %jcc;
+        margin-right: j(5);
+        width: 16px;
+        height: 16px;
+        border: 1px solid #fff;
+        &:after{
+            @extend %br50;
+            content: '';
+            background-color: #fff;
+            width: 10px;
+            height: 10px;
+        }
+    }
+    strong{
+        @extend %fwn;
+        text-decoration: underline;
+    }
+}
+.button{
+    @extend %df;
+    @extend %cp;
+    @extend %aic;
+    @extend %jcc;
+    @extend %ma;
+    @extend %cfff;
+    margin-top: j(45);
+    height: j(102);
+    width: j(580);
+    border-radius: j(51);
+    border: none;
+    font-size: j(36);
+    background-color: #0095d9;
+}
+
+.popup-wrap{
+    @extend %pf;
+    @extend %w100;
+    @extend %h100;
+    @extend %t0;
+    @extend %l0;
+    @extend %r0;
+    @extend %b0;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    background-color: rgba(0,0,0,.5);
+}
+.popup-inner{
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    width: j(600);
+    background-color: #fff;
+    border-radius: j(10);
+}
+.popup-title{
+    font-size: j(34);
+    padding: j(30) 0;
+}
+.popup-content{
+    @extend %c6;
+    max-height: j(500);
+    padding: 0 j(30);
+    font-size: j(18);
+    overflow-y: auto;
+}
+.popup-button{
+    @extend %df;
+    @extend %cp;
+    @extend %aic;
+    @extend %jcc;
+    @extend %ma;
+    @extend %cfff;
+    margin: j(30) 0;
+    height: j(60);
+    width: j(200);
+    border-radius: j(30);
+    border: none;
+    font-size: j(18);
+    background-color: #0095d9;
+}
