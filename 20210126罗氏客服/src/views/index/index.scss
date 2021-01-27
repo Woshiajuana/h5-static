@@ -55,12 +55,16 @@ body{
         width: 16px;
         height: 16px;
         border: 1px solid #fff;
-        &:after{
-            @extend %br50;
-            content: '';
-            background-color: #fff;
-            width: 10px;
-            height: 10px;
+    }
+    &.active{
+        i{
+            &:after{
+                @extend %br50;
+                content: '';
+                background-color: #fff;
+                width: 10px;
+                height: 10px;
+            }
         }
     }
     strong{

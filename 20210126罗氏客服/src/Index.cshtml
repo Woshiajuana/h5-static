@@ -15,7 +15,7 @@
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Content/Custom/lib/flexible.js"></script>
 
-    <link href="~/Content/Custom/css/index.e63651a144.css" rel="stylesheet">
+    <link href="~/Content/Custom/css/index.a30cb0cb21.css" rel="stylesheet">
 </head>
 <body>
 
@@ -32,7 +32,7 @@
 
     <div class="c-flex1"></div>
 
-    <div class="agreement active">
+    <div class="agreement">
         <i></i>
         <span>已阅读并同意用户</span>
         <strong id="secret">隐私协议</strong>
@@ -289,6 +289,9 @@
                 }
             });
             $(".button").click(function () {
+                if (!$('.agreement').hasClass('active')) {
+                    return window.alert('请先阅读并勾选隐私协议')
+                }
                 var ret = '@ViewBag.ReturnUrl';
                 window.location.href = "../Passport/Login?scope=snsapi_userinfo&ReturnUrl=" + ret;
             });
