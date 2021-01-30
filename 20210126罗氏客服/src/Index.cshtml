@@ -274,20 +274,26 @@
     <script src="~/Content/Custom/js/index.e63651a144.js"></script>
     <script>
         $(function () {
-            $("#secret").click(function () {
-                $(".popup-wrap").removeClass('hidden');
-            });
-            $(".popup-button").click(function () {
-                $(".popup-wrap").addClass('hidden');
-            });
-            $(".agreement").click(function () {
+            $(".agreement").on('click',function () {
                 if ($(this).hasClass('active')) {
                     $(this).removeClass('active');
-                }
-                else {
+                } else {
+                    $('.popup-wrap').removeClass('hidden');
                     $(this).addClass('active');
                 }
+            }).on('click', '#secret', function (e) {
+                $(".popup-wrap").removeClass('hidden');
+                e.stopPropagation();
             });
+
+            $(".popup-wrap").on('click', function () {
+                $(".popup-wrap").addClass('hidden');
+            }).on('click', '.popup-inner', function (e) {
+                e.stopPropagation();
+            }).on('click', '.popup-button', function () {
+                $(".popup-wrap").addClass('hidden');
+            });
+
             $(".button").click(function () {
                 if (!$('.agreement').hasClass('active')) {
                     return window.alert('请先阅读并勾选隐私协议')

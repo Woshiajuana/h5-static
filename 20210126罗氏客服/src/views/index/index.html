@@ -1,6 +1,10 @@
 
 {{extend 'src/layouts/layout.html'}}
 
+{{block 'head'}}
+<script src="assets/lib/jquery-1.8.1.min.js"></script>
+{{/block}}
+
 {{block 'title'}}罗氏微信客服{{/block}}
 
 {{block 'content'}}
@@ -20,7 +24,7 @@
 <div class="agreement">
     <i></i>
     <span>已阅读并同意用户</span>
-    <strong>隐私协议</strong>
+    <strong id="secret">隐私协议</strong>
 </div>
 
 <button class="button">提交</button>
@@ -254,5 +258,38 @@
         <button class="popup-button">确认</button>
     </div>
 </div>
+
+
+<script>
+    $(function () {
+        $(".agreement").on('click',function () {
+            if ($(this).hasClass('active')) {
+                $(this).removeClass('active');
+            } else {
+                $('.popup-wrap').removeClass('hidden');
+                $(this).addClass('active');
+            }
+        }).on('click', '#secret', function (e) {
+            $(".popup-wrap").removeClass('hidden');
+            e.stopPropagation();
+        });
+
+        $(".popup-wrap").on('click', function () {
+            $(".popup-wrap").addClass('hidden');
+        }).on('click', '.popup-inner', function (e) {
+            e.stopPropagation();
+        }).on('click', '.popup-button', function () {
+            $(".popup-wrap").addClass('hidden');
+        });
+
+        $(".button").click(function () {
+            if (!$('.agreement').hasClass('active')) {
+                return window.alert('请先阅读并勾选隐私协议')
+            }
+            var ret = '@ViewBag.ReturnUrl';
+            window.location.href = "../Passport/Login?scope=snsapi_userinfo&ReturnUrl=" + ret;
+        });
+    });
+</script>
 
 {{/block}}
