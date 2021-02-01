@@ -262,6 +262,12 @@
 
 <script>
     $(function () {
+        var flag = window.localStorage.getItem('flag') || false;
+        if (flag) {
+            window.location.replace('http://roche.g2digi.com/dist/index.html');
+        } else {
+            $('body').removeClass('hidden');
+        }
         $(".agreement").on('click',function () {
             if ($(this).hasClass('active')) {
                 $(this).removeClass('active');
@@ -286,7 +292,8 @@
             if (!$('.agreement').hasClass('active')) {
                 return window.alert('请先阅读并勾选隐私协议')
             }
-            window.location.href = 'http://roche.g2digi.com/dist/index.html';
+            window.localStorage.setItem('flag', '1');
+            window.location.replace('http://roche.g2digi.com/dist/index.html');
         });
     });
 </script>
