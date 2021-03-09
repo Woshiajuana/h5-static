@@ -1,0 +1,54 @@
+
+@import "~src/assets/scss/reset.scss";
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/pop.scss";
+
+%boxs{
+    box-shadow: 0 0 j(5) 0 rgba(0,0,0,.05);
+}
+*{
+    -webkit-tap-highlight-color: transparent;   //设置为透明
+}
+
+html,
+body{
+    @extend %w100;
+    background-color: #fff;
+}
+
+.app{
+    @extend %w100;
+}
+.header{
+    padding: j(16);
+    line-height: 1.5;
+}
+.title{
+    @extend %fwn;
+    @extend %c3;
+    font-size: j(16);
+}
+.prompt{
+    @extend %df;
+    @extend %aic;
+    @extend %jcs;
+    @extend %c9;
+    font-size: j(12);
+    margin-top: j(10);
+}
+.content{
+    @extend %c6;
+    padding: j(10) 0 j(20);
+    margin: 0 j(16);
+    font-size: j(13);
+    line-height: 1.5;
+    img{
+        width: 100%;
+        height: auto;
+        margin: j(10) 0;
+    }
+    p{
+        margin: j(10) 0;
+        text-indent: 2em;
+    }
+}
