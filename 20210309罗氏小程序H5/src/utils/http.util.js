@@ -1,6 +1,7 @@
 
 import Toast                            from 'src/utils/toast.util'
 import Api                              from 'src/utils/api.config'
+import storage                          from 'src/utils/storage'
 
 function Http (url, data, options) {
     this.fn = options.fn || 'fetch';
@@ -18,11 +19,13 @@ function Http (url, data, options) {
 Http.prototype.fetch = function () {
     console.log(this.url, '请求参数 => ', this.data);
     return new Promise((resolve, reject) => {
+        let { token } = storage.cache.get('$$USER_INFO', {});
         $.ajax({
             url: this.url,
             data: this.options.type === 'GET' ? this.data : JSON.stringify(this.data),
             headers: {
-                'Content-Type': 'application/json;charset=UTF-8'
+                'Content-Type': 'application/json;charset=UTF-8',
+                'AccessToken': token,
             },
             ...this.options,
             success: (response) => {
@@ -31,7 +34,7 @@ Http.prototype.fetch = function () {
                 if (Status !== 0)
                     return reject(Message || '网络繁忙，请稍后再试');
                 console.log(this.url, '请求返回格式化 => ', Data);
-                resolve(Data || response);
+                resolve(Data);
             },
             error: (err = '') => {
                 console.log(this.url, '请求错误 => ', err);
@@ -39,7 +42,7 @@ Http.prototype.fetch = function () {
                 let msg;
                 try {
                     response = JSON.parse(response);
-                    msg = response.msg || response.message || '网络繁忙，请稍后再试';
+                    msg = response.msg || response.Message || '网络繁忙，请稍后再试';
                 } catch (e) {
                     msg = '网络繁忙，请稍后再试';
                 } finally {

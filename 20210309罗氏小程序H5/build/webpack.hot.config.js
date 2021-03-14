@@ -46,7 +46,7 @@ module.exports = merge(webpackBaseConfig, {
         // 启动 gzip 压缩
         compress: true,
         // 服务端口
-        port: 9527,
+        port: 8092,
         // 自动打开浏览器
         open: false,
         // 开启 hot

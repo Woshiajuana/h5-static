@@ -52,3 +52,19 @@ body{
         text-indent: 2em;
     }
 }
+.c-button{
+    @extend %df;
+    @extend %cp;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    @extend %ma;
+    @extend %boxs;
+    border: none;
+    border-radius: j(20);
+    background-color: #009AE0;
+    font-size: j(16);
+    width: j(120);
+    height: j(40);
+    margin: j(30) auto;
+}
