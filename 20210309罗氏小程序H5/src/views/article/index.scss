@@ -52,6 +52,12 @@ body{
         text-indent: 2em;
     }
 }
+.c-button-group{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: j(30) auto;
+}
 .c-button{
     @extend %df;
     @extend %cp;
@@ -60,11 +66,17 @@ body{
     @extend %cfff;
     @extend %ma;
     @extend %boxs;
+    margin: 0 j(10);
     border: none;
     border-radius: j(20);
-    background-color: #009AE0;
     font-size: j(16);
     width: j(120);
     height: j(40);
-    margin: j(30) auto;
+    &.button-collect{
+        background-color: #f5aa2d;
+    }
+    &.button-return,
+    &.button-sure{
+        background-color: #009AE0;
+    }
 }
