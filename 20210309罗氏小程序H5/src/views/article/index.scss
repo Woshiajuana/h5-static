@@ -20,13 +20,14 @@ body{
     @extend %w100;
 }
 .header{
-    padding: j(16);
+    padding: j(30) j(16) j(20);
     line-height: 1.5;
 }
 .title{
-    @extend %fwn;
+    @extend %fwb;
     @extend %c3;
-    font-size: j(16);
+    @extend %tac;
+    font-size: j(18);
 }
 .prompt{
     @extend %df;
@@ -40,16 +41,19 @@ body{
     @extend %c6;
     padding: j(10) 0 j(20);
     margin: 0 j(16);
-    font-size: j(13);
-    line-height: 1.5;
+    font-size: j(14);
+    line-height: 1.6;
     img{
-        width: 100%;
-        height: auto;
+        @extend %db;
+        max-width: 100% !important;
         margin: j(10) 0;
+        height: auto !important;
     }
-    p{
+    video{
+        @extend %db;
+        max-width: 100% !important;
+        min-height: j(240);
         margin: j(10) 0;
-        text-indent: 2em;
     }
 }
 .c-button-group{

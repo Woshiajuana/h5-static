@@ -51,9 +51,9 @@ const Controller = {
             let { Title, Content, CreatedDate } = res;
             let strHtml = `
              <div class="header">
-                <div class="title">${ Title }</div>
+                <div class="title">${ Title || '' }</div>
             </div>
-            <div class="content">${Content}</div>
+            <div class="content">${Content || ''}</div>
             `;
             if (type === 'task') {
                 strHtml += `

@@ -18,7 +18,7 @@
     @extend %aic;
     @extend %jcc;
     @extend %fdc;
-    background-color: rgba(0,0,0,.5);
+    //background-color: rgba(0,0,0,.5);
     span{
         font-size: j(10);
         color: #fff;
@@ -37,7 +37,8 @@
 .pop-icon{
     width: j(60);
     height: j(60);
-    background: url('~src/assets/images/loading.gif') no-repeat;
+    border-radius: j(4);
+    background: rgba(0,0,0,.5) url('~src/assets/images/loading.gif') no-repeat;
     background-size: contain;
 }
 
