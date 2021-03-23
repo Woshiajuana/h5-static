@@ -40,6 +40,7 @@ module.exports = merge(webpackBaseConfig, {
     // 特点：只会在内存中编译打包，不会有任何输出
     // 启动 devServer 指令为：webpack-dev-server
     devServer: {
+        disableHostCheck: true,
         // 运行的目录
         contentBase: resolve(__dirname, '../public/'),
         host: '0.0.0.0',
