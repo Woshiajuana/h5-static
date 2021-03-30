@@ -1,0 +1,69 @@
+
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/reset.scss";
+input:disabled, input[disabled]{
+    -webkit-opacity: 1;
+    opacity: 1;
+    -webkit-text-fill-color: #c2c2c2 !important;
+    color: #c2c2c2 !important;
+}
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder{
+    color: #c2c2c2;
+}
+textarea::-moz-placeholder,
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+    color: #c2c2c2;
+}
+textarea:-moz-placeholder,
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color: #c2c2c2;
+}
+textarea:-ms-input-placeholder,
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #c2c2c2;
+}
+.form-cell{
+    @extend %bw05;
+    @extend %bwb;
+    @extend %df;
+    @extend %aic;
+    height: j(54);
+    padding-left: j(20);
+}
+.form-label{
+    @extend %c3;
+    font-size: j(16);
+}
+.form-value{
+    @extend %pr;
+    @extend %df1;
+    @extend %df;
+    @extend %aic;
+    @extend %h100;
+    input{
+        @extend %w100;
+        @extend %tar;
+        @extend %bsb;
+        @extend %c3;
+        border: none;
+        background-color: transparent;
+        font-size: j(16);
+        padding: 0 j(20);
+    }
+}
+.form-button{
+    @extend %cfff;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cp;
+    font-size: j(18);
+    margin: j(70) auto;
+    width: j(335);
+    height: j(44);
+    border-radius: j(4);
+    border: none;
+    user-select: none;
+    background-color: #007FD6;
+}
