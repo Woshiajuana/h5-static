@@ -17,7 +17,7 @@ const Controller = {
         Http(Http.API.REQ_URL_SCHEME_INFO, {
             Id: +id,
         }).then(res => {
-
+            // window.location.href = res.OpenLink;
         }).toast();
     },
 };
