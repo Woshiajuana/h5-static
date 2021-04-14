@@ -75,3 +75,11 @@ body{
 .desktop-web-container p {
     margin-top:30px;
 }
+#wechat-web-container{
+    p {
+        @extend %tac;
+        @extend %c3;
+        font-size: j(14);
+        padding-top: j(120);
+    }
+}

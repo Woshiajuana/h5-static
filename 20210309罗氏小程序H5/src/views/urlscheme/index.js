@@ -38,6 +38,7 @@ const Controller = {
                 correctLevel: QRCode.CorrectLevel.H
             });
         } else if (isWeixin) {
+            $('#wechat-web-container').removeClass('hidden')
             // //如果微信浏览器，通过开放标签打开小程序
             // const containerEl = document.getElementById('wechat-web-container')
             // containerEl.classList.remove('hidden')
