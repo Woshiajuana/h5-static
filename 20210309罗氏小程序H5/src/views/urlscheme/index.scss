@@ -2,6 +2,7 @@
 @import "~src/assets/scss/reset.scss";
 @import "~src/assets/scss/define.scss";
 @import "~src/assets/scss/pop.scss";
+@import "~src/assets/scss/weui.min.scss";
 
 %boxs{
     box-shadow: 0 0 j(5) 0 rgba(0,0,0,.05);
@@ -15,72 +16,62 @@ body{
     @extend %w100;
     background-color: #fff;
 }
+.hidden {
+    display: none;
+}
 
-.app{
-    @extend %w100;
+.full {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-.header{
-    padding: j(30) j(16) j(20);
-    line-height: 1.5;
+
+.public-web-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.title{
-    @extend %fwb;
-    @extend %c3;
-    @extend %tac;
-    font-size: j(18);
+
+.public-web-container p {
+    position: absolute;
+    top: 40%;
 }
-.prompt{
-    @extend %df;
-    @extend %aic;
-    @extend %jcs;
-    @extend %c9;
-    font-size: j(12);
-    margin-top: j(10);
+
+.public-web-container a {
+    position: absolute;
+    bottom: 40%;
 }
-.content{
-    @extend %c6;
-    padding: j(10) 0 j(20);
-    margin: 0 j(16);
-    font-size: j(14);
-    line-height: 1.6;
-    img{
-        @extend %db;
-        max-width: 100% !important;
-        margin: j(10) 0;
-        height: auto !important;
-    }
-    video{
-        @extend %db;
-        max-width: 100% !important;
-        min-height: j(240);
-        margin: j(10) 0;
-    }
+
+.wechat-web-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.c-button-group{
-    @extend %df;
-    @extend %aic;
-    @extend %jcc;
-    margin: j(30) auto;
+
+.wechat-web-container p {
+    position: absolute;
+    top: 40%;
 }
-.c-button{
-    @extend %df;
-    @extend %cp;
-    @extend %aic;
-    @extend %jcc;
-    @extend %cfff;
-    @extend %ma;
-    @extend %boxs;
-    margin: 0 j(10);
-    border: none;
-    border-radius: j(20);
-    font-size: j(16);
-    width: j(120);
-    height: j(40);
-    &.button-collect{
-        background-color: #f5aa2d;
-    }
-    &.button-return,
-    &.button-sure{
-        background-color: #009AE0;
-    }
+
+.wechat-web-container wx-open-launch-weapp {
+    position: absolute;
+    bottom: 40%;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desktop-web-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:center;
+}
+
+.desktop-web-container p {
+    margin-top:30px;
 }
