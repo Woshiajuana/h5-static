@@ -1,0 +1,86 @@
+
+@import "~src/assets/scss/reset.scss";
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/pop.scss";
+
+%boxs{
+    box-shadow: 0 0 j(5) 0 rgba(0,0,0,.05);
+}
+*{
+    -webkit-tap-highlight-color: transparent;   //设置为透明
+}
+
+html,
+body{
+    @extend %w100;
+    background-color: #fff;
+}
+
+.app{
+    @extend %w100;
+}
+.header{
+    padding: j(30) j(16) j(20);
+    line-height: 1.5;
+}
+.title{
+    @extend %fwb;
+    @extend %c3;
+    @extend %tac;
+    font-size: j(18);
+}
+.prompt{
+    @extend %df;
+    @extend %aic;
+    @extend %jcs;
+    @extend %c9;
+    font-size: j(12);
+    margin-top: j(10);
+}
+.content{
+    @extend %c6;
+    padding: j(10) 0 j(20);
+    margin: 0 j(16);
+    font-size: j(14);
+    line-height: 1.6;
+    img{
+        @extend %db;
+        max-width: 100% !important;
+        margin: j(10) 0;
+        height: auto !important;
+    }
+    video{
+        @extend %db;
+        max-width: 100% !important;
+        min-height: j(240);
+        margin: j(10) 0;
+    }
+}
+.c-button-group{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin: j(30) auto;
+}
+.c-button{
+    @extend %df;
+    @extend %cp;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    @extend %ma;
+    @extend %boxs;
+    margin: 0 j(10);
+    border: none;
+    border-radius: j(20);
+    font-size: j(16);
+    width: j(120);
+    height: j(40);
+    &.button-collect{
+        background-color: #f5aa2d;
+    }
+    &.button-return,
+    &.button-sure{
+        background-color: #009AE0;
+    }
+}

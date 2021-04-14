@@ -5,7 +5,7 @@ import storage                          from 'src/utils/storage'
 
 function Http (url, data, options) {
     this.fn = options.fn || 'fetch';
-    this.url = `https://rochecrm.g2digi.com/${url}`;
+    this.url = url.startsWith('http') ? url : `https://rochecrm.g2digi.com/${url}`;
     this.options = Object.assign({
         type: 'POST',
         timeout: 60 * 1000,

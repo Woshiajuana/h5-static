@@ -10,6 +10,8 @@ export default {
     // 收藏
     DO_COLLECT_ADDED: 'Home/SaveUserCollect',
 
+    // 获取 urlscheme
+    REQ_URL_SCHEME_INFO: 'OpenApi/GetUrlScheme',
 
 }
 
