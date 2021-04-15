@@ -3,12 +3,20 @@ import './index.scss'
 import 'src/utils/es6-promise.util'
 import Router                       from 'src/utils/router.util'
 import Http                         from 'src/utils/http.util'
+import copy                         from 'copy-to-clipboard'
 
 // 控制器
 const Controller = {
     init () {
         $('#public-web-jump-button').on('click', () => {
             this.openWeapp();
+        });
+        $('#copy-btn').on('click', () => {
+            if (copy(window.location.href)) {
+                window.alert('复制成功，请到浏览器粘贴打开');
+            } else {
+                window.alert('复制失败，请点击右上角按钮打开菜单，选择复制');
+            }
         });
         const ua = navigator.userAgent.toLowerCase()
         // 企业微信
