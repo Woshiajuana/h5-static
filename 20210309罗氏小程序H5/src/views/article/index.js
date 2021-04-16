@@ -26,7 +26,7 @@ const Controller = {
         }).then(res => {
             console.log(res);
             let params = encodeURIComponent(JSON.stringify({
-                number: res,
+                ...res,
                 type: 'studyTask',
             }));
             wx.miniProgram.redirectTo({
