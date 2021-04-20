@@ -1,0 +1,248 @@
+
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/reset.scss";
+@import "~src/assets/scss/iconfont.scss";
+
+html, body {
+    font-size: 37.5px !important;
+}
+
+
+.header-wrap{
+    @extend %ps;
+    @extend %t0;
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .08), 0 0 1px rgba(1, 0, 0, .1);
+}
+.header-inner{
+    @extend %ma;
+    @extend %df;
+    @extend %aic;
+    @extend %jcs;
+    width: j(1320);
+    height: j(78);
+}
+.logo-box{
+    @extend %df;
+    @extend %aic;
+    @extend %c3;
+    font-size: j(32);
+}
+.logo{
+    width: j(54);
+    height: j(54);
+    margin-right: j(20);
+}
+.nav-box{
+    @extend %df;
+    @extend %aic;
+}
+.nav-item{
+    @extend %cp;
+    @extend %c3;
+    padding: 0 j(16);
+    font-size: j(16);
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.banner{
+    @extend %db;
+    @extend %w100;
+    min-width: j(1320);
+    height: auto;
+}
+
+.section-wrap{
+    padding: j(80) 0;
+    &:nth-child(even) {
+        background-color: #E6E8EB;
+    }
+    &.banner-wrap{
+        padding: 0;
+    }
+    &.business-wrap{
+        padding-top: 0;
+        .section-inner{
+            @extend %df;
+            @extend %jce;
+        }
+        .section-title{
+            @extend %pa;
+            @extend %l0;
+            @extend %df;
+            top: j(130);
+        }
+    }
+}
+.section-inner{
+    @extend %ma;
+    @extend %pr;
+    width: j(1320);
+}
+.section-title{
+    @extend %df;
+    @extend %aic;
+    @extend %fdc;
+    margin-bottom: j(70);
+    h2{
+        font-size: j(42);
+        color: #AD1E26;
+        margin-bottom: j(10);
+    }
+    p{
+        @extend %c6;
+        @extend %df;
+        @extend %aic;
+        @extend %jcc;
+        font-size: j(18);
+        &:before,
+        &:after{
+            content: '';
+            margin: 0 j(16);
+            width: j(80);
+            height: j(3);
+            background-color: #ddd;
+        }
+    }
+}
+
+.plans-box{
+    @extend %df;
+    @extend %fww;
+    width: j(320 * 3);
+    li{
+        @extend %df;
+        @extend %fdc;
+        @extend %aic;
+        @extend %bsb;
+        padding: j(50) j(50) 0;
+        width: j(320);
+        height: j(320);
+        &:nth-child(2){
+            background-color: #F4F6F8;
+            i{
+                color: #dd333e;
+            }
+        }
+        &:nth-child(3){
+            box-shadow: 0 j(10) j(5) j(5) rgba(0,0,0,.05);
+            i{
+                color: #dd333e;
+            }
+        }
+        &:nth-child(4){
+            background-color: #F4F6F8;
+            i{
+                color: #dd333e;
+            }
+        }
+        &:nth-child(5){
+            box-shadow: 0 j(10) j(5) j(5) rgba(0,0,0,.05);
+            i{
+                color: #dd333e;
+            }
+        }
+        &:nth-child(6){
+            background-color: #F4F6F8;
+            i{
+                color: #dd333e;
+            }
+        }
+    }
+    i{
+        color: #dd333e;
+        font-size: j(56);
+    }
+    h3{
+        @extend %c3;
+        margin: j(10) 0;
+        font-size: j(24);
+    }
+    p{
+        @extend %c6;
+        font-size: j(16);
+    }
+}
+
+.solution{
+    @extend %db;
+    @extend %w100;
+    height: auto;
+}
+
+.advantage-box{
+    @extend %df;
+    @extend %jcs;
+    li{
+        @extend %df;
+        @extend %fdc;
+        width: j(300);
+    }
+    i{
+        color: #dd333e;
+        font-size: j(56);
+    }
+    h3{
+        @extend %c3;
+        margin: j(20) 0;
+        font-size: j(24);
+    }
+    p{
+        @extend %c6;
+        font-size: j(16);
+    }
+}
+.scene-box{
+    @extend %df;
+    @extend %fww;
+    @extend %jcc;
+    li{
+        @extend %oh;
+        @extend %boxs;
+        border-radius: j(8);
+        width: j(300);
+        height: j(300);
+        margin-right: j(40);
+        margin-bottom: j(40);
+        background-color: #fff;
+        &:nth-child(4),
+        &:nth-child(7){
+            margin-right: 0;
+        }
+    }
+    img{
+        @extend %db;
+        @extend %w100;
+        @extend %ofc;
+        height: j(182);
+    }
+    h3{
+        @extend %c3;
+        font-size: j(24);
+        padding: j(30) j(30) 0;
+    }
+}
+.copyright{
+    @extend %tac;
+    padding: j(80) 0 0;
+    a{
+        @extend %tac;
+        @extend %c9;
+        font-size: j(14);
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
+
+@media screen and (min-width: 1440px){
+    .section-inner,
+    .header-inner{
+        width: j(1320);
+    }
+    .banner{
+        min-width: j(1320);
+    }
+}

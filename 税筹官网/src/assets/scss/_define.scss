@@ -7,6 +7,7 @@
     @return ($px / $base-font-size) * 1rem;
 }
 
+
 @function q($px, $r: 1920) {
     @return $px / $r * 100%;
 }
@@ -17,6 +18,10 @@ $color_main: #E35D38;
 
 
 $num_mobile_with: 768px;
+
+%ps{
+    position: sticky;
+}
 
 %ifg{
     -webkit-filter: grayscale(100%);
@@ -198,10 +203,6 @@ $num_mobile_with: 768px;
 
 %pr{
     position:relative;
-}
-
-%ps{
-    position: sticky;
 }
 
 %pa{
