@@ -47,23 +47,32 @@ const Controller = {
                 correctLevel: QRCode.CorrectLevel.H
             });
         } else if (isWeixin) {
-            this.reqWxConfig();
-            $('#wechat-web-container').removeClass('hidden')
-            // //如果微信浏览器，通过开放标签打开小程序
-            // const containerEl = document.getElementById('wechat-web-container')
-            // containerEl.classList.remove('hidden')
-            // containerEl.classList.add('full', 'wechat-web-container')
-            //
-            // const launchBtn=document.getElementById('launch-btn')
-            // launchBtn.addEventListener('error', function (e) {
-            //     console.log('用户拒绝跳转或跳转异常', e.detail)
-            // })
-            // const config = await getWXConfig()
-            // wx.config({
-            //     ...config,
-            //     jsApiList: ['chooseImage'], // 安卓上必填一个，随机即可
-            //     openTagList: ['wx-open-launch-weapp'], // 填入打开小程序的开放标签名
-            // })
+            let { id } = Router.getParams();
+            Http(Http.API.REQ_URL_SCHEME_INFO, {
+                Id: id,
+            }).then((res) => {
+                return Http(Http.API.REQ_WX_CONFIG_INFO, {
+                    current_url: window.location.href,
+                });
+            }).then(res => {
+                wx.config({
+                    debug: false,
+                    ...res,
+                    jsApiList: ['chooseImage'],
+                    openTagList:['wx-open-launch-weapp'],
+                });
+                $('#wechat-web-container').removeClass('hidden');
+                //如果微信浏览器，通过开放标签打开小程序
+                const containerEl = document.getElementById('wechat-web-container');
+                containerEl.classList.remove('hidden');
+                containerEl.classList.add('full', 'wechat-web-container');
+                const launchBtn = document.getElementById('launch-btn');
+                launchBtn.setAttribute('username', 'gh_5db2f91668e2');
+                launchBtn.setAttribute('path', `/pages/home/index?${res.Query}`);
+                launchBtn.addEventListener('error', function (e) {
+                    console.log('用户拒绝跳转或跳转异常', e.detail);
+                });
+            }).toast();
         } else {
             // 在非微信的外部手机浏览器使用URLScheme打开小程序
             const containerEl = document.getElementById('public-web-container')
@@ -82,28 +91,6 @@ const Controller = {
                 })
             } catch (e) {}
         }
-    },
-    reqWxConfig () {
-        Http(Http.API.REQ_WX_CONFIG_INFO, {
-            current_url: window.location.href,
-        }).then(res => {
-            wx.config({
-                debug: false,
-                ...res,
-                jsApiList: [
-                    'onMenuShareTimeline',
-                    'onMenuShareAppMessage',
-                    'onMenuShareQZone',
-                    'onMenuShareWeibo',
-                ]
-            });
-            wx.ready(() => {
-                wx.hideOptionMenu();
-            });
-            wx.error((res) => {
-                console.log(res)
-            });
-        }).toast();
     },
     openWeapp (onBeforeJump) {
         let { id } = Router.getParams();

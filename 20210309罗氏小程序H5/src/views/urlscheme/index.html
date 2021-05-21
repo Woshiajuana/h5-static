@@ -26,29 +26,30 @@
     </div>
     <!-- 微信手机浏览器页面 -->
     <div id="wechat-web-container" class="hidden">
-<!--        <p>点击以下按钮打开 “罗氏轻糖俱乐部”</p>-->
-        <p>请复制链接到浏览器中打开</p>
-        <a href="javascript:" id="copy-btn" class="weui-btn weui-btn_primary">复制链接</a>
-<!--        <wx-open-launch-weapp id="launch-btn" username="gh_261a0fa4c000" path="/pages/index/index?from=tag">-->
-<!--            <template>-->
-<!--                <style>-->
-<!--                    button {-->
-<!--                        width: 200px;-->
-<!--                        height: 45px;-->
-<!--                        text-align: center;-->
-<!--                        font-size: 17px;-->
-<!--                        display: block;-->
-<!--                        margin: 0 auto;-->
-<!--                        padding: 8px 24px;-->
-<!--                        border: none;-->
-<!--                        border-radius: 4px;-->
-<!--                        background-color: #07c160;-->
-<!--                        color: #fff;-->
-<!--                    }-->
-<!--                </style>-->
-<!--                <button>打开小程序</button>-->
-<!--            </template>-->
-<!--        </wx-open-launch-weapp>-->
+        <p>点击以下按钮打开 “罗氏轻糖俱乐部”</p>
+<!--        <p>请复制链接到浏览器中打开</p>-->
+<!--        <a href="javascript:" id="copy-btn" class="weui-btn weui-btn_primary">复制链接</a>-->
+        <wx-open-launch-weapp
+            id="launch-btn">
+            <template>
+                <style>
+                    button {
+                        width: 200px;
+                        height: 45px;
+                        text-align: center;
+                        font-size: 17px;
+                        display: block;
+                        margin: 0 auto;
+                        padding: 8px 24px;
+                        border: none;
+                        border-radius: 4px;
+                        background-color: #07c160;
+                        color: #fff;
+                    }
+                </style>
+                <button>打开小程序</button>
+            </template>
+        </wx-open-launch-weapp>
     </div>
     <!-- PC浏览器页面 -->
     <div id="desktop-web-container" class="hidden">
