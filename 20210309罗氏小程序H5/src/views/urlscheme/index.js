@@ -1,6 +1,7 @@
 
 import './index.scss'
 import 'src/utils/es6-promise.util'
+import Toast                            from 'src/utils/toast.util'
 import Router                       from 'src/utils/router.util'
 import Http                         from 'src/utils/http.util'
 import copy                         from 'copy-to-clipboard'
@@ -48,9 +49,12 @@ const Controller = {
             });
         } else if (isWeixin) {
             let { id } = Router.getParams();
+            if (!id) return Toast.msg('错误链接');
+            let scheme = '';
             Http(Http.API.REQ_URL_SCHEME_INFO, {
                 Id: id,
             }).then((res) => {
+                scheme = res;
                 return Http(Http.API.REQ_WX_CONFIG_INFO, {
                     current_url: window.location.href,
                 });
@@ -68,7 +72,7 @@ const Controller = {
                 containerEl.classList.add('full', 'wechat-web-container');
                 const launchBtn = document.getElementById('launch-btn');
                 launchBtn.setAttribute('username', 'gh_5db2f91668e2');
-                launchBtn.setAttribute('path', `/pages/home/index?${res.Query}`);
+                launchBtn.setAttribute('path', `/pages/home/index?${scheme.Query}`);
                 launchBtn.addEventListener('error', function (e) {
                     console.log('用户拒绝跳转或跳转异常', e.detail);
                 });
@@ -94,6 +98,7 @@ const Controller = {
     },
     openWeapp (onBeforeJump) {
         let { id } = Router.getParams();
+        if (!id) return Toast.msg('错误链接');
         Http(Http.API.REQ_URL_SCHEME_INFO, {
             Id: id,
         }).then(res => {
