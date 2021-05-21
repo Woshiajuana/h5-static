@@ -18,7 +18,8 @@ const Controller = {
                 window.alert('复制失败，请点击右上角按钮打开菜单，选择复制');
             }
         });
-        const ua = navigator.userAgent.toLowerCase()
+
+        const ua = navigator.userAgent.toLowerCase();
         // 企业微信
         const isWXWork = ua.match(/wxwork/i) == 'wxwork'
         // 微信浏览器
@@ -46,6 +47,7 @@ const Controller = {
                 correctLevel: QRCode.CorrectLevel.H
             });
         } else if (isWeixin) {
+            this.reqWxConfig();
             $('#wechat-web-container').removeClass('hidden')
             // //如果微信浏览器，通过开放标签打开小程序
             // const containerEl = document.getElementById('wechat-web-container')
@@ -81,7 +83,28 @@ const Controller = {
             } catch (e) {}
         }
     },
-
+    reqWxConfig () {
+        Http(Http.API.REQ_WX_CONFIG_INFO, {
+            current_url: window.location.href,
+        }).then(res => {
+            wx.config({
+                debug: false,
+                ...res,
+                jsApiList: [
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQZone',
+                    'onMenuShareWeibo',
+                ]
+            });
+            wx.ready(() => {
+                wx.hideOptionMenu();
+            });
+            wx.error((res) => {
+                console.log(res)
+            });
+        }).toast();
+    },
     openWeapp (onBeforeJump) {
         let { id } = Router.getParams();
         Http(Http.API.REQ_URL_SCHEME_INFO, {
@@ -94,10 +117,5 @@ const Controller = {
         }).toast();
     },
 };
-
-
-function openWeapp () {
-
-}
 
 Controller.init();

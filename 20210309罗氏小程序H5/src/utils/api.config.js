@@ -13,5 +13,8 @@ export default {
     // 获取 urlscheme
     REQ_URL_SCHEME_INFO: 'OpenApi/GetUrlScheme',
 
+    // 获取配置
+    REQ_WX_CONFIG_INFO: 'https://roche.g2digi.com/WechatApi/GetJSSDK',
+
 }
 

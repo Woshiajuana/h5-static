@@ -40,13 +40,15 @@ module.exports = merge(webpackBaseConfig, {
     // 特点：只会在内存中编译打包，不会有任何输出
     // 启动 devServer 指令为：webpack-dev-server
     devServer: {
+        // 禁止安全检测
+        disableHostCheck: true,
         // 运行的目录
         contentBase: resolve(__dirname, '../public/'),
         host: '0.0.0.0',
         // 启动 gzip 压缩
         compress: true,
         // 服务端口
-        port: 8092,
+        port: 22580,
         // 自动打开浏览器
         open: false,
         // 开启 hot
