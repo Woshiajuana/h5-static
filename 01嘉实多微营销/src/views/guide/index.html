@@ -3,10 +3,35 @@
 
 {{block 'title'}}操作引导{{/block}}
 
+{{block 'head'}}
+<script src="assets/lib/jquery-1.8.1.min.js"></script>
+{{/block}}
+
 {{block 'content'}}
 
-<img class="guide" src="~src/assets/images/guide-image.jpg" alt="操作指引">
+<ul class="guide">
+    <li style="display: block"><img src="~src/assets/images/guide-1.jpg"></li>
+    <li><img src="~src/assets/images/guide-2.jpg"></li>
+    <li><img src="~src/assets/images/guide-3.jpg"></li>
+    <li><img src="~src/assets/images/guide-4.jpg"></li>
+    <li><img src="~src/assets/images/guide-5.jpg"></li>
+    <li><img src="~src/assets/images/guide-6.jpg"></li>
+    <li><img src="~src/assets/images/guide-7.jpg"></li>
+</ul>
 
-<div class="button">进入城市课堂</div>
+<script>
+    $(function () {
+        var index = 0;
+        $('.guide').on('click', function () {
+            index++;
+            if (index < 7) {
+                $('.guide li').hide().eq(index).show();
+                return null;
+            }
+            console.log('哈哈');
+            // 下一步跳转页面
+        });
+    })
+</script>
 
 {{/block}}

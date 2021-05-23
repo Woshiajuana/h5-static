@@ -1,0 +1,25 @@
+
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/reset.scss";
+
+body{
+    background-color: #f2f2f2;
+}
+.guide{
+    @extend %w100;
+    height: auto;
+}
+.button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    @extend %cp;
+    @extend %fwb;
+    font-size: j(32);
+    width: j(275);
+    height: j(72);
+    border-radius: j(36);
+    background-color: #007b32;
+    margin: j(40) auto j(120);
+}
