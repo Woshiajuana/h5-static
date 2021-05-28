@@ -1,0 +1,54 @@
+
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/reset.scss";
+
+.header{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    @extend %pr;
+    height: j(200);
+    margin-bottom: j(100);
+    &:after{
+        @extend %br50;
+        @extend %pa;
+        @extend %l50;
+        @extend %b0;
+        margin-left: j(-500);
+        content: '';
+        width: j(1000);
+        height: j(1000);
+        background-color: #539EFA;
+    }
+    h1{
+        @extend %pr;
+        @extend %df;
+        @extend %aic;
+        z-index: 1;
+        font-size: j(20);
+        &:before,
+        &:after{
+            @extend %pr;
+            z-index: 1;
+            content: '';
+            width: j(40);
+            height: 1px;
+            background-color: #fff;
+            margin: 0 j(20);
+        }
+    }
+}
+.link-button{
+    @extend %df;
+    @extend %cp;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    font-size: j(16);
+    width: j(300);
+    height: j(44);
+    margin: j(20) auto;
+    border-radius: j(12);
+    background-color: #539EFA;
+}
