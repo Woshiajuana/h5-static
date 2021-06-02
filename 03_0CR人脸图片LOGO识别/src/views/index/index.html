@@ -1,0 +1,32 @@
+
+{{extend 'src/layouts/layout.html'}}
+
+{{block 'title'}}0CR人脸图片LOGO识别{{/block}}
+
+{{block 'head'}}
+<script src="assets/lib/jquery-1.8.1.min.js"></script>
+{{/block}}
+
+
+{{block 'content'}}
+
+
+<div class="null"></div>
+
+<div class="upload-button">
+    <span>+</span>
+    <img src=""/>
+    <input type="file" accept='image/*'/>
+</div>
+
+<dl class="result result-logo">
+    <dt>LOGO识别结果：</dt>
+    <dd></dd>
+</dl>
+<br>
+<br>
+<dl class="result result-face">
+    <dt>人脸识别结果：</dt>
+    <dd></dd>
+</dl>
+{{/block}}

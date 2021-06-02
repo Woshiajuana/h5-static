@@ -1,0 +1,53 @@
+
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/reset.scss";
+@import "~src/assets/scss/pop.scss";
+
+.null{
+    height: j(50);
+}
+.upload-button{
+    @extend %ma;
+    @extend %pr;
+    @extend %df;
+    @extend %aic;
+    @extend %oh;
+    @extend %jcc;
+    width: j(200);
+    height: j(200);
+    border: 1px solid #dedede;
+    border-radius: j(5);
+    margin-bottom: j(20);
+    span{
+        font-size: j(30);
+    }
+    img{
+        @extend %dn;
+    }
+    img,
+    input{
+        @extend %oh;
+        @extend %pa;
+        @extend %t0;
+        @extend %l0;
+        @extend %w100;
+        @extend %h100;
+        border-radius: j(5);
+    }
+    input{
+        opacity: 0;
+    }
+}
+.result{
+    @extend %ma;
+    @extend %bsb;
+    font-size: j(14);
+    line-height: 1.6;
+    width: j(375);
+    padding: 0 j(16);
+    word-break: break-word;
+    dt{
+        @extend %fwb;
+        margin-bottom: j(5);
+    }
+}
