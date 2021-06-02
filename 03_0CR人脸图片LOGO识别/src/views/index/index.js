@@ -11,14 +11,13 @@ $(() => {
 
     $('.upload-button > input').on('change', function (event) {
         let imgFile = event.target.files[0];
-        if (!imgFile) return event.target.value = '';
+        event.target.value = '';
+        if (!imgFile) return null;
         //后缀选取
         if (!/\/(?:jpeg|jpg|png)/i.test(imgFile.type)) {
-            event.target.value = '';
             return Toast.msg('图片格式不支持');
         }
         if (imgFile.size >= 1024 * 1024 * 10) {
-            event.target.value = '';
             return Toast.msg('图片格式过大');
         }
         Toast.show();
