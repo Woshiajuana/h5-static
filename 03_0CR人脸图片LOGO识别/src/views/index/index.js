@@ -8,7 +8,6 @@ import Toast                        from 'src/utils/toast.util'
 
 $(() => {
 
-
     $('.upload-button > input').on('change', function (event) {
         let imgFile = event.target.files[0];
         event.target.value = '';
@@ -21,43 +20,47 @@ $(() => {
             return Toast.msg('图片格式过大');
         }
         Toast.show();
-        let index = 0;
         $('.result dd').text('').css('color', '#000');
         Image.toBase64(imgFile).then(base64 => {
             // return Image.compressQuality(base64, { width: 1024 });
         // }).then(({ base64 }) => {
             $('.upload-button > img').attr('src', base64).show();
-
-            Http(Http.API.DO_OCR_LOGO, {
-                ocr_image: base64.split(',')[1],
-            }, {
-                loading: false,
-            }).then(res => {
-                $('.result-logo > dd').text(res);
-            }).catch(err => {
-                $('.result-logo > dd').text(err).css('color', 'red');
-            }).finally(() => {
-                index++;
-                if (index > 1) {
-                    Toast.hide();
+            return Promise.all([
+                Http(Http.API.DO_OCR_LOGO, {
+                    ocr_image: base64.split(',')[1],
+                }, {
+                    loading: false,
+                }),
+                Http(Http.API.DO_OCR_FACE, {
+                    ocr_image: base64.split(',')[1],
+                }, {
+                    loading: false,
+                }),
+            ]);
+        }).then(res => {
+            let [ logoResult, faceResult ] = res || [];
+            $('.result-logo > dd').text(logoResult).css('color', '#000');
+            $('.result-face > dd').text(faceResult).css('color', '#000');
+            let isResult = logoResult.toString().includes('嘉实多') || logoResult.toString().toLocaleLowerCase().includes('castrol');
+            if (isResult) {
+                try {
+                    faceResult = JSON.parse(faceResult);
+                    isResult = faceResult.result && faceResult.result.face_list && faceResult.result.face_list.length > 0;
+                } catch (e) {
+                    isResult = false;
                 }
+            }
+            $('.result-total > dd').text(isResult ? '通过！' : '不通过').css('color', isResult ? '#15ab1a' : 'red');
+            Toast.confirm({
+                content: isResult ? `<span style="color: #15ab1a;">通过!!</span>` : `<span style="color: red;">不通过</span>`,
+                type: 'alert',
+                sureText: '我知道了'
             });
-
-            Http(Http.API.DO_OCR_FACE, {
-                ocr_image: base64.split(',')[1],
-            }, {
-                loading: false,
-            }).then(res => {
-                $('.result-face > dd').text(res);
-            }).catch(err => {
-                $('.result-face > dd').text(err).css('color', 'red');
-            }).finally(() => {
-                index++;
-                if (index > 1) {
-                    Toast.hide();
-                }
-            });
-        }).toast();
+        }).catch(err => {
+            $('.result > dd').text(err).css('color', 'red');
+        }).finally(() => {
+            Toast.hide();
+        });
     });
 
 

@@ -29,6 +29,7 @@ Http.prototype.fetch = function () {
             },
             ...this.options,
             success: (response) => {
+                console.log(this.url, '请求结果 => ', response);
                 resolve(response);
             },
             error: (err = '') => {
