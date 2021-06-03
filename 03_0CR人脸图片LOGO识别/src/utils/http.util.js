@@ -29,12 +29,7 @@ Http.prototype.fetch = function () {
             },
             ...this.options,
             success: (response) => {
-                console.log(this.url, '请求返回 => ', response);
-                let { Status, Message, Data } = response;
-                if (Status !== 0)
-                    return reject(Message || '网络繁忙，请稍后再试');
-                console.log(this.url, '请求返回格式化 => ', Data);
-                resolve(Data);
+                resolve(response);
             },
             error: (err = '') => {
                 console.log(this.url, '请求错误 => ', err);
