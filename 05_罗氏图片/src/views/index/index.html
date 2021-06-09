@@ -1,0 +1,34 @@
+
+{{extend 'src/layouts/layout.html'}}
+
+{{block 'title'}}{{/block}}
+{{block 'head'}}
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
+    </style>
+{{/block}}
+{{block 'content'}}
+
+<script>
+    var params = (function () {
+        var str = location.search.substring(location.search.indexOf('?')),
+            obj = {};
+        if (str) {
+            str.substr(1).split('&').forEach(function (item) {
+                var subAry = item.split('=');
+                obj[subAry[0]] = decodeURIComponent(item.replace(subAry[0] + '=', ''));
+            });
+        }
+        return obj;
+    })();
+    document.title = params.title || '';
+    document.body.innerHTML = '<img src="' + params.img + '"/>';
+</script>
+{{/block}}
