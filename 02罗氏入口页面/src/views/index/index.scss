@@ -19,7 +19,7 @@
         content: '';
         width: j(1000);
         height: j(1000);
-        background-color: #539EFA;
+        background-color: #f07811;
     }
     h1{
         @extend %pr;
@@ -50,5 +50,5 @@
     height: j(44);
     margin: j(20) auto;
     border-radius: j(12);
-    background-color: #539EFA;
+    background-color: #f07811;
 }
