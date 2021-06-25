@@ -1,2 +1,134 @@
 
 @import "~src/assets/scss/common.scss";
+
+.null{
+    height: f(40);
+}
+.form-view{
+    @extend %df;
+    @extend %jcs;
+    @extend %fww;
+    box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
+    margin: 0 f(30);
+    padding: f(50) f(30);
+    border-radius: f(20);
+}
+.form-cell{
+    @extend %w100;
+    @extend %cp;
+    background: #f2f2f2;
+    margin-bottom: f(20);
+    height: f(90);
+    border-radius: f(16);
+    input,
+    select{
+        @extend %w100;
+        @extend %h100;
+        @extend %bsb;
+        @extend %c3;
+        font-size: f(40);
+        padding: 0 f(30);
+        background: transparent;
+        border: none;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+    }
+    &.form-half{
+        width: 49%;
+    }
+    &.form-search1{
+        cursor: default;
+        background: #f2f2f2 url("src/assets/images/search-icon.png") f(20) center no-repeat;
+        background-size: auto 70%;
+        input{
+            padding-left: f(100);
+        }
+    }
+    &.form-search2{
+        cursor: default;
+        @extend %df;
+    }
+}
+.form-value{
+    @extend %df1;
+    @extend %h100;
+}
+.form-search-btn{
+    @extend %cp;
+    width: f(90);
+    padding: 0 f(10);
+    background: url("src/assets/images/search-icon.png") center no-repeat;
+    background-size: auto 70%;
+}
+.record-view{
+    border-radius: f(20);
+    box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
+    margin: f(30);
+}
+.record-prompt{
+    @extend %c9;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    height: f(300);
+    font-size: f(40);
+}
+.record-item{
+    @extend %bw05;
+    @extend %bwb;
+    @extend %cp;
+    padding: f(50);
+    font-size: f(40);
+    p{
+        @extend %c3;
+        padding: f(5) 0;
+        word-break: break-all;
+        &:before{
+            @extend %vam;
+            @extend %dib;
+            @extend %br50;
+            margin-right: f(20);
+            width: 5px;
+            height: 5px;
+            background-color: #ddd;
+            content: '';
+        }
+    }
+    strong{
+        color: #02a650;
+    }
+    .link{
+        text-decoration: underline;
+    }
+}
+.popup-image{
+    @extend %pf;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %w100;
+    @extend %h100;
+    @extend %t0;
+    @extend %l0;
+    overflow-y: auto;
+    z-index: 9;
+    background: rgba(0, 0, 0, .5);
+    img{
+        @extend %db;
+        @extend %w100;
+    }
+    i{
+        @extend %pa;
+        @extend %r0;
+        @extend %t0;
+        @extend %cp;
+        @extend %br50;
+        top: f(20);
+        right: f(20);
+        width: f(100);
+        height: f(100);
+        background: rgba(0, 0, 0, .5) url("src/assets/images/close.png") center no-repeat;
+        background-size: 70%;
+    }
+}

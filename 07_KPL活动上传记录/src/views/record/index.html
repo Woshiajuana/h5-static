@@ -1,8 +1,96 @@
 
 {{extend 'src/layouts/layout.html'}}
 
-{{block 'title'}}template-multi-html{{/block}}
+{{block 'title'}}KPL活动记录{{/block}}
+
+{{block 'head'}}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+{{/block}}
 
 {{block 'content'}}
+
+<div class="null"></div>
+<div class="form-view">
+    <div class="form-cell form-half form-select">
+        <select>
+            <option>省份</option>
+            <option>省份省份省份省份省份省份省份省份省份</option>
+            <option>333</option>
+        </select>
+    </div>
+    <div class="form-cell form-half form-select">
+        <select>
+            <option>城市</option>
+            <option>222</option>
+            <option>333</option>
+        </select>
+    </div>
+    <div class="form-cell form-half form-select">
+        <select>
+            <option>省份</option>
+            <option>省份省份省份省份省份省份省份省份省份</option>
+            <option>333</option>
+        </select>
+    </div>
+    <div class="form-cell form-half form-select">
+        <select>
+            <option>城市</option>
+            <option>222</option>
+            <option>333</option>
+        </select>
+    </div>
+    <div class="form-cell form-search1">
+        <input type="text" placeholder="搜索"/>
+    </div>
+    <div class="form-cell form-search2">
+        <div class="form-value">
+            <input type="text" placeholder="搜索"/>
+        </div>
+        <i class="form-search-btn"></i>
+    </div>
+</div>
+
+<ul class="record-view">
+    <li class="record-prompt">没有数据</li>
+    <li class="record-item">
+        <p>活动时间：2020-01-01</p>
+        <p>地址：2020-01-01</p>
+        <p>门店名称：2020-01-01</p>
+        <p>品牌：2020-01-01</p>
+        <p>活动等级：2020-01-01</p>
+        <p>活动照片：<strong class="link">点击查看</strong></p>
+    </li>
+    <li class="record-item">
+        <p>活动时间：2020-01-01</p>
+        <p>地址：2020-01-01</p>
+        <p>门店名称：2020-01-01</p>
+        <p>品牌：2020-01-01</p>
+        <p>活动等级：2020-01-012020-01-012020-01-012020-01-012020-01-012020-01-012020-01-012020-01-01</p>
+        <p>活动照片：<strong class="link">点击查看</strong></p>
+    </li>
+    <li class="record-item">
+        <p>活动时间：2020-01-01</p>
+        <p>地址：2020-01-01</p>
+        <p>门店名称：2020-01-01</p>
+        <p>品牌：2020-01-01</p>
+        <p>活动等级：2020-01-01</p>
+        <p>活动照片：<strong class="link">点击查看</strong></p>
+    </li>
+</ul>
+
+<!--显示弹窗只需要去掉 hiddenImportant-->
+<!--隐藏需要加 hiddenImportant-->
+<div class="popup-image hiddenImportant">
+    <img src="~src/assets/images/banner-2.jpg"/>
+    <i></i>
+</div>
+
+<script type="text/javascript">
+    //页面加载完成后初始化select2控件
+    $(function () {
+        $("select").select2();
+    });
+</script>
 
 {{/block}}

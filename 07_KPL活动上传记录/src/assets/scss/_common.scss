@@ -2,6 +2,26 @@
 @import "./reset";
 @import "./define";
 
+
+::-webkit-input-placeholder{ color: #a9a9a9}    /* 使用webkit内核的浏览器 */
+:-moz-placeholder{ color: #a9a9a9}                  /* Firefox版本4-18 */
+::-moz-placeholder{ color: #a9a9a9}                  /* Firefox版本19+ */
+:-ms-input-placeholder{ color: #a9a9a9}           /* IE浏览器 */
+
+.select2-selection__arrow{
+
+}
+.select2-selection--single{
+    border: none !important;
+    height: f(90) !important;
+    background-color: transparent !important;
+}
+.select2-selection__rendered{
+    line-height: f(90) !important;
+    font-size: f(40) !important;
+    color: #333 !important;
+}
+
 .c-button{
     @extend %df;
     @extend %aic;

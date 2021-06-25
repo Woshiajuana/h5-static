@@ -1,2 +1,82 @@
 
 @import "~src/assets/scss/common.scss";
+
+.null{
+    height: f(40);
+}
+.form-view{
+    @extend %df;
+    @extend %jcs;
+    @extend %fww;
+    box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
+    margin: 0 f(30);
+    padding: f(50) f(30);
+    border-radius: f(20);
+}
+.form-cell{
+    @extend %w100;
+    @extend %cp;
+    background: #f2f2f2;
+    margin-bottom: f(20);
+    height: f(90);
+    border-radius: f(16);
+    input,
+    select{
+        @extend %w100;
+        @extend %h100;
+        @extend %bsb;
+        @extend %c3;
+        font-size: f(40);
+        padding: 0 f(30);
+        background: transparent;
+        border: none;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+    }
+    &.form-half{
+        width: 49%;
+    }
+}
+
+.upload-view{
+    border-radius: f(20);
+    box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
+    margin: f(30);
+    padding: f(50) 0;
+    h2{
+        @extend %tac;
+        color: #02a650;
+        font-size: f(46);
+    }
+    p{
+        @extend %c9;
+        padding: 0 f(72);
+        font-size: f(36);
+        margin-bottom: f(30);
+    }
+}
+.upload-content{
+    @extend %df;
+    @extend %fww;
+    margin-right: f(-40);
+    padding: f(80) f(72);
+}
+.upload-item{
+    @extend %pr;
+    margin-right: f(38);
+    margin-bottom: f(38);
+    width: f(278);
+    height: f(278);
+    border-radius: f(20);
+    background: #f2f2f2 url("src/assets/images/upload-bg.png") center no-repeat;
+    background-size: 40%;
+    input{
+        @extend %pa;
+        @extend %w100;
+        @extend %h100;
+        @extend %t0;
+        @extend %l0;
+        opacity: 0;
+    }
+}
