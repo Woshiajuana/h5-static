@@ -7,9 +7,16 @@
     @return ($px / $base-font-size) * 1rem;
 }
 
-@function q($px, $r: 1920) {
-    @return $px / $r * 100%;
+
+@function f($px, $base-font-size: 37.5px) {
+    @if (unitless($px)) {
+        @return f($px + 0px); // That may fail.
+    } @else if (unit($px) == rem) {
+        @return $px;
+    }
+    @return ($px / 1125 * 750 / $base-font-size) * .5rem;
 }
+
 
 $num_max_with: 1200px;
 $color_main_bg: #151515;

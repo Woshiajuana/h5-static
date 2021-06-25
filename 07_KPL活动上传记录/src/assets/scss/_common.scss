@@ -1,3 +1,20 @@
 
 @import "./reset";
 @import "./define";
+
+.c-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    @extend %cp;
+    @extend %ma;
+    @extend %fwb;
+    box-shadow: 0 f(10) f(10) f(10) rgba(0, 0, 0, .05);
+    margin-bottom: f(50);
+    border-radius: f(10);
+    width: f(830);
+    height: f(150);
+    font-size: f(55);
+    background-image: linear-gradient(to right, #02a650, #079549);
+}

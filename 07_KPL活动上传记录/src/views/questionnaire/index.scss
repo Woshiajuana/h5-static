@@ -1,2 +1,27 @@
 
 @import "~src/assets/scss/common.scss";
+
+body{
+    background: url("src/assets/images/bg.jpg") center repeat-y;
+    background-size: 100% auto;
+}
+.null{
+    height: f(50);
+}
+.button{
+    @extend %df;
+    @extend %aic;
+    @extend %cp;
+    @extend %ma;
+    @extend %bsb;
+    padding: 0 f(60);
+    color: #565d63;
+    font-size: f(60);
+    height: f(312);
+    width: f(1049);
+    background: url("src/assets/images/link-bg.jpg") no-repeat;
+    background-size: contain;
+    margin-bottom: f(30);
+    border-radius: f(12);
+    box-shadow: 0 f(10) f(10) f(10) rgba(0, 0, 0, .05);
+}

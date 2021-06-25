@@ -1,2 +1,62 @@
 
 @import "~src/assets/scss/common.scss";
+
+body{
+    background: url("src/assets/images/bg.jpg") center repeat-y;
+    background-size: 100% auto;
+    padding-bottom: f(300);
+}
+.banner{
+    @extend %db;
+    @extend %w100;
+    height: auto;
+}
+.container{
+    @extend %pr;
+    padding-top: f(100);
+    padding-bottom: f(150);
+    &:before{
+        @extend %pa;
+        @extend %t0;
+        @extend %l0;
+        z-index: 1;
+        content: '';
+        width: f(349);
+        height: f(586);
+        background: url("src/assets/images/icon-3.png") no-repeat;
+        background-size: contain;
+    }
+    &:after{
+        @extend %pa;
+        @extend %r0;
+        @extend %b0;
+        content: '';
+        width: f(504);
+        height: f(211);
+        background: url("src/assets/images/icon-2.png") no-repeat;
+        background-size: contain;
+    }
+}
+.content{
+    @extend %ma;
+    @extend %df;
+    @extend %fdc;
+    @extend %aic;
+    @extend %jcc;
+    @extend %pr;
+    width: f(980);
+    height: f(1480);
+    background: url("src/assets/images/content-bg.png") no-repeat;
+    background-size: contain;
+    i{
+        width: f(245);
+        height: f(240);
+        background: url("src/assets/images/icon-1.png") no-repeat;
+        background-size: contain;
+    }
+    h2{
+        font-size: f(50);
+        margin: f(40) 0 f(200);
+    }
+
+}

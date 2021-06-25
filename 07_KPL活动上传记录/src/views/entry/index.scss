@@ -1,2 +1,19 @@
 
 @import "~src/assets/scss/common.scss";
+
+body{
+    background: url("src/assets/images/bg.jpg") center repeat-y;
+    background-size: 100% auto;
+}
+.null{
+    height: f(100);
+}
+.banner{
+    @extend %db;
+    @extend %ma;
+    box-shadow: 0 f(10) f(10) f(10) rgba(0, 0, 0, .05);
+    border-radius: f(20);
+    width: f(1005);
+    height: f(549);
+    margin-bottom: f(170);
+}
