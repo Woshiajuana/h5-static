@@ -1,0 +1,59 @@
+
+{{extend 'src/layouts/layout.html'}}
+
+{{block 'title'}}template-multi-html{{/block}}
+
+{{block 'head'}}
+<script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
+{{/block}}
+
+
+{{block 'content'}}
+
+<h3 class="title">js 动态换肤</h3>
+
+<script>
+    // 1. 主题颜色配置
+    var colors = {
+        red: {
+            themeColor: '#FF0000'
+        },
+        blue: {
+            themeColor: '#0000FF'
+        }
+    }
+
+    // 2. 异步获取样式
+    var styles = ''
+    axios.get('./theme.css').then((resp=> {
+        const colorMap = {
+            '#FF0000': 'themeColor'
+        }
+        styles = resp.data
+        Object.keys(colorMap).forEach(key => {
+            const value = colorMap[key]
+            styles = styles.replace(new RegExp(key, 'ig'), value)
+            console.log(styles)
+        })
+        writeNewStyle (styles, colors.red)
+    }))
+
+    // 3.换色
+    // console.log 中输入 writeNewStyle (styles, colors.blue)可以换蓝色主题
+    // console.log 中输入 writeNewStyle (styles, colors.blue)可以换红色主题
+    function writeNewStyle (originalStyle, colors) {
+        let oldEl = document.getElementById('temp-style')
+        let cssText = originalStyle
+
+        Object.keys(colors).forEach(key => {
+            cssText = cssText.replace(new RegExp(key, 'ig'), colors[key])
+        })
+        const style = document.createElement('style')
+        style.innerText = cssText
+        style.id = 'temp-style'
+
+        oldEl ? document.head.replaceChild(style, oldEl) : document.head.appendChild(style)
+    }
+</script>
+
+{{/block}}

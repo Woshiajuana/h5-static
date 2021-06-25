@@ -1,0 +1,20 @@
+
+@import '~src/assets/scss/define.scss';
+
+header{
+    padding: j(100) 0 j(20);
+}
+
+.logo{
+    @extend %db;
+    @extend %ma;
+    width: j(100);
+    height: j(100);
+}
+
+h1{
+    @extend %tac;
+    @extend %c3;
+    margin-top: 20px;
+    font-size: 30px;
+}
