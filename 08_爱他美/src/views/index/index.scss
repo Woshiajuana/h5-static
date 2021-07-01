@@ -21,6 +21,8 @@ body{
 }
 .container-wrap{
     @extend %pr;
+    @extend %ma;
+    max-width: j(750);
 }
 .tab-section{
     @extend %df;
@@ -52,7 +54,6 @@ body{
     }
 }
 .container-inner{
-
 }
 .container-content{
     @extend %df;
