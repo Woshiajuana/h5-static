@@ -1,0 +1,96 @@
+
+@import "src/assets/scss/define.scss";
+@import "src/assets/scss/reset.scss";
+@import "src/assets/scss/swiper.min.scss";
+
+body{
+    background-color: #f1f4f8;
+}
+.swiper-container{
+    @extend %ma;
+    @extend %pr;
+    @extend %boxs;
+    z-index: 1;
+    max-width: j(750);
+    height: j(452);
+    img{
+        @extend %h100;
+        @extend %w100;
+        @extend %ofc;
+    }
+    .swiper-pagination-bullet-active{
+        background-color: #000 !important;
+    }
+}
+.container-wrap{
+    @extend %pr;
+}
+.tab-section{
+    @extend %df;
+    @extend %pr;
+    @extend %aic;
+    @extend %jcs;
+    @extend %bw05;
+    @extend %bwb;
+    padding: j(20) j(48) 0;
+    background-color: #fff;
+    &.use-sticky{
+        position: sticky;
+        top: j(-20);
+    }
+}
+.tab-item{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cp;
+    @extend %pr;
+    font-size: j(26);
+    padding: 0 j(10);
+    color: #c0c0c0;
+    height: j(80);
+    &.active{
+        color: #2d2d2d;
+        box-shadow: inset 0 -2px #e59d09;
+    }
+}
+.container-inner{
+
+}
+.container-content{
+    @extend %df;
+    @extend %fww;
+    @extend %jcs;
+    padding: j(48);
+}
+.cell{
+    @extend %oh;
+    @extend %boxs;
+    border-radius: j(12);
+    width: j(305);
+    height: j(428);
+    background-color: #fff;
+    margin-bottom: j(38);
+    img{
+        @extend %w100;
+        @extend %ofc;
+        height: j(325);
+    }
+    p{
+        @include twno(2);
+        font-size: j(26);
+        color: #2d2d2d;
+        margin-top: j(13);
+        padding: 0 j(16);
+    }
+    span{
+        @extend %fwb;
+        color: #c0c0c0;
+        font-size: j(50);
+    }
+    &.cell-null{
+        @extend %df;
+        @extend %aic;
+        @extend %jcc;
+    }
+}
