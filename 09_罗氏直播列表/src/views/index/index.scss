@@ -1,0 +1,92 @@
+
+@import "src/assets/scss/define.scss";
+@import "src/assets/scss/reset.scss";
+
+body{
+    background-color: #f9fafc;
+}
+.list{
+    padding-top: j(40);
+    &-title{
+        @extend %df;
+        @extend %aic;
+        @extend %jcc;
+        color: #383d50;
+        font-size: j(37);
+        padding: j(40) 0;
+        i{
+            width: j(54);
+            height: j(54);
+            margin-right: j(10);
+        }
+        &:before{
+            margin-right: j(30);
+            content: '';
+            width: j(138);
+            height: j(20);
+            background: url("src/assets/images/icon4.png");
+            background-size: contain;
+        }
+        &:after{
+            margin-left: j(30);
+            content: '';
+            width: j(138);
+            height: j(20);
+            background: url("src/assets/images/icon5.png");
+            background-size: contain;
+        }
+    }
+    &-icon-1{
+        background: url("src/assets/images/icon1.png") no-repeat;
+        background-size: contain;
+    }
+    &-icon-2{
+        background: url("src/assets/images/icon2.png") no-repeat;
+        background-size: contain;
+    }
+    &-item{
+        @extend %ma;
+        margin-bottom: j(40);
+        border-radius: j(20);
+        box-shadow: 0 j(5) j(5) j(2) rgba(0, 0, 0, .08);
+        background-color: #fff;
+        width: j(680);
+        line-height: 1.6;
+        padding-bottom: j(24);
+        h3{
+            @extend %twno;
+            font-size: j(28);
+            color: #383d50;
+            padding: 0 j(30);
+            margin-top: j(24);
+        }
+        p{
+            @extend %df;
+            @extend %aic;
+            padding: 0 j(30);
+            color: #9b9ea7;
+        }
+        i{
+            width: j(24);
+            height: j(24);
+            background: url("src/assets/images/icon3.jpg") no-repeat;
+            background-size: contain;
+            margin-right: j(10);
+        }
+    }
+    &-cover{
+        @extend %db;
+        @extend %w100;
+        border-radius: j(20) j(20) 0 0;
+        height: j(315);
+        background-color: #f2f2f2;
+    }
+    .list-prompt{
+        @extend %df;
+        @extend %aic;
+        @extend %jcc;
+        @extend %c9;
+        font-size: j(28);
+        padding: j(10) 0 j(40);
+    }
+}
