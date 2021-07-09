@@ -16,6 +16,7 @@
 .form-cell{
     @extend %w100;
     @extend %cp;
+    @extend %pr;
     background: #f2f2f2;
     margin-bottom: f(20);
     height: f(90);
@@ -25,6 +26,7 @@
         @extend %w100;
         @extend %h100;
         @extend %bsb;
+        @extend %pr;
         @extend %c3;
         font-size: f(40);
         padding: 0 f(30);
@@ -38,7 +40,17 @@
         width: 49%;
     }
 }
-
+.form-placeholder{
+    @extend %h100;
+    @extend %df;
+    @extend %aic;
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    padding: 0 f(30);
+    font-size: f(40);
+    color: #a9a9a9;
+}
 .upload-view{
     border-radius: f(20);
     box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
