@@ -40,6 +40,10 @@
             <option>333</option>
         </select>
     </div>
+    <div class="form-cell">
+        <span class="form-placeholder">活动时间</span>
+        <input  type="date"/>
+    </div>
     <div class="form-cell form-search1">
         <input type="text" placeholder="搜索"/>
     </div>
@@ -90,6 +94,10 @@
     //页面加载完成后初始化select2控件
     $(function () {
         $("select").select2();
+        $('input[type="date"]').on('change', function () {
+            var $el = $(this), value = $el.val(), $elPer = $el.parent().find('.form-placeholder');
+            value ? $elPer.hide() : $elPer.show();
+        })
     });
 </script>
 

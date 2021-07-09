@@ -16,6 +16,7 @@
 .form-cell{
     @extend %w100;
     @extend %cp;
+    @extend %pr;
     background: #f2f2f2;
     margin-bottom: f(20);
     height: f(90);
@@ -26,6 +27,7 @@
         @extend %h100;
         @extend %bsb;
         @extend %c3;
+        @extend %pr;
         font-size: f(40);
         padding: 0 f(30);
         background: transparent;
@@ -49,6 +51,17 @@
         cursor: default;
         @extend %df;
     }
+}
+.form-placeholder{
+    @extend %h100;
+    @extend %df;
+    @extend %aic;
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    padding: 0 f(30);
+    font-size: f(40);
+    color: #a9a9a9;
 }
 .form-value{
     @extend %df1;
