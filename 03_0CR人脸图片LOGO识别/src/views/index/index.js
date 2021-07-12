@@ -22,8 +22,8 @@ $(() => {
         Toast.show();
         $('.result dd').text('').css('color', '#000');
         Image.toBase64(imgFile).then(base64 => {
-            // return Image.compressQuality(base64, { width: 1024 });
-        // }).then(({ base64 }) => {
+            return Image.compressQuality(base64, { width: 1024 });
+        }).then(({ base64 }) => {
             $('.upload-button > img').attr('src', base64).show();
             return Promise.all([
                 Http(Http.API.DO_OCR_LOGO, {

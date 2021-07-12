@@ -12,6 +12,19 @@
     margin: 0 f(30);
     padding: f(50) f(30);
     border-radius: f(20);
+    .c-button{
+        margin-top: j(30);
+    }
+}
+.form-label{
+    @extend %w100;
+    @extend %c9;
+    font-size: f(40);
+    line-height: j(30);
+    margin-top: j(10);
+    &:first-child{
+        margin-top: 0;
+    }
 }
 .form-cell{
     @extend %w100;

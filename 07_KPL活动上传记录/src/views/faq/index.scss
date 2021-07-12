@@ -1,0 +1,85 @@
+
+@import "~src/assets/scss/common.scss";
+
+body{
+    padding-bottom: j(40);
+}
+
+.cell{
+    padding: f(60) f(80);
+    border-bottom: 1px solid #dadada;
+    &:nth-child(odd){
+        background-color: #f6f6f7;
+    }
+    dt{
+        font-size: f(45);
+        color: #181818;
+        margin-bottom: f(30);
+    }
+    dd{
+        @extend %df;
+        @extend %cp;
+        margin: f(16) 0;
+        line-height: 1.5;
+        word-break: break-all;
+        font-size: f(40);
+        color: #9aa3ac;
+        &.active{
+            i{
+                border: 1px solid #02a54f;
+                &:after{
+                    @extend %db;
+                }
+            }
+        }
+    }
+    i{
+        @extend %pr;
+        @extend %df;
+        @extend %aic;
+        @extend %jcc;
+        margin-top: f(7);
+        margin-right: f(20);
+        border-radius: 50%;
+        border: 1px solid #aaaaaa;
+        width: 14px;
+        height: 14px;
+        &:after{
+            @extend %dn;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            content: '';
+            background-color: #02a54f;
+        }
+
+    }
+    span{
+        @extend %df1;
+    }
+    .textarea{
+        @extend %w100;
+        @extend %bsb;
+        font-size: f(40);
+        color: #333;
+        padding: j(16);
+        line-height: 1.5;
+        border-radius: j(10);
+        border: 1px solid #ddd;
+        height: j(160);
+    }
+}
+.button{
+    @extend %df;
+    @extend %cp;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    border-radius: f(8);
+    margin: f(70) auto 0;
+    width: f(900);
+    height: f(150);
+    font-size: f(60);
+    background-color: #03a44f;
+    box-shadow: 0 0 f(10) f(10) rgba(0,128,57,.1);
+}
