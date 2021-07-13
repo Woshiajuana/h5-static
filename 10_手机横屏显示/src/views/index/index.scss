@@ -1,0 +1,43 @@
+
+@import "~src/assets/scss/define.scss";
+@import "~src/assets/scss/reset.scss";
+
+html{
+    @extend %w100;
+    @extend %h100;
+    //min-height: 1200px;
+    //background-color: #9a2b2b;
+}
+body{
+    @extend %w100;
+    @extend %h100;
+}
+.header{
+    @extend %w100;
+    @extend %df;
+    @extend %aic;
+    @extend %jcs;
+    height: j(50);
+    background-color: red;
+    h1{
+        @extend %tac;
+        @extend %cfff;
+        @extend %cfff;
+    }
+    i{
+        @extend %h100;
+        width: j(50);
+        background-color: blue;
+    }
+}
+#app{
+    @extend %w100;
+    @extend %h100;
+    overflow-x: auto;
+    background-color: black;
+}
+p{
+    @extend %df;
+    border-bottom: 1px solid red;
+    height: j(30);
+}

@@ -1,6 +1,9 @@
 
 @import "~src/assets/scss/common.scss";
 
+body{
+    padding-bottom: j(40);
+}
 .null{
     height: f(40);
 }
@@ -8,12 +11,19 @@
     @extend %df;
     @extend %jcs;
     @extend %fww;
+    @extend %bsb;
     box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
     margin: 0 f(30);
     padding: f(50) f(30);
     border-radius: f(20);
     .c-button{
         margin-top: j(30);
+    }
+    h2{
+        @extend %tac;
+        @extend %w100;
+        color: #02a650;
+        font-size: f(46);
     }
 }
 .form-label{
@@ -65,6 +75,7 @@
     color: #a9a9a9;
 }
 .upload-view{
+    @extend %oh;
     border-radius: f(20);
     box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
     margin: f(30);
@@ -94,8 +105,11 @@
     width: f(278);
     height: f(278);
     border-radius: f(20);
-    background: #f2f2f2 url("src/assets/images/upload-bg.png") center no-repeat;
-    background-size: 40%;
+    background: #f2f2f2;
+    &.bg{
+        background: #f2f2f2 url("src/assets/images/upload-bg.png") center no-repeat;
+        background-size: 40%;
+    }
     input{
         @extend %pa;
         @extend %w100;
@@ -103,5 +117,16 @@
         @extend %t0;
         @extend %l0;
         opacity: 0;
+    }
+    img{
+        @extend %pa;
+        @extend %w100;
+        @extend %h100;
+        @extend %t0;
+        @extend %l0;
+    }
+    &.upload-btn{
+        background: #f2f2f2 url("src/assets/images/upload-bg2.png") center no-repeat;
+        background-size: 40%;
     }
 }

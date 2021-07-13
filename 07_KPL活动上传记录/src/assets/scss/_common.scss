@@ -30,6 +30,7 @@
     @extend %cp;
     @extend %ma;
     @extend %fwb;
+    @extend %pr;
     box-shadow: 0 f(10) f(10) f(10) rgba(0, 0, 0, .05);
     margin-bottom: f(50);
     border-radius: f(10);
@@ -37,4 +38,12 @@
     height: f(150);
     font-size: f(55);
     background-image: linear-gradient(to right, #02a650, #079549);
+    img{
+        @extend %pa;
+        @extend %t0;
+        @extend %l0;
+        @extend %w100;
+        @extend %h100;
+        opacity: 0;
+    }
 }
