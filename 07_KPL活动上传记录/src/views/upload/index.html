@@ -4,8 +4,8 @@
 {{block 'title'}}KPL活动记录{{/block}}
 
 {{block 'head'}}
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>-->
 {{/block}}
 
 {{block 'content'}}
@@ -100,7 +100,7 @@
 <script type="text/javascript">
     //页面加载完成后初始化select2控件
     $(function () {
-        $("select").select2();
+        // $("select").select2();
         $('input[type="date"]').on('change', function () {
             var $el = $(this), value = $el.val(), $elPer = $el.parent().find('.form-placeholder');
             value ? $elPer.hide() : $elPer.show();

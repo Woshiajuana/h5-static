@@ -46,4 +46,87 @@
         @extend %h100;
         opacity: 0;
     }
+    &.mini{
+        margin-top: f(20);
+        margin-bottom: 0;
+        width: f(300);
+        height: f(66);
+        font-size: f(40);
+    }
+    &.lean{
+        @extend %w100;
+        font-size: f(40);
+        margin-top: f(20) !important;
+        height: f(90);
+    }
+}
+
+
+
+.form-view{
+    @extend %df;
+    @extend %jcs;
+    @extend %fww;
+    @extend %bsb;
+    box-shadow: 0 0 f(5) f(5) rgba(0,0,0,.05);
+    margin: 0 f(30);
+    padding: f(50) f(30);
+    border-radius: f(20);
+    .c-button{
+        margin-top: j(30);
+    }
+    h2{
+        @extend %tac;
+        @extend %w100;
+        color: #02a650;
+        font-size: f(46);
+    }
+}
+.form-label{
+    @extend %w100;
+    @extend %c9;
+    font-size: f(40);
+    line-height: j(30);
+    margin-top: j(10);
+    &:first-child{
+        margin-top: 0;
+    }
+}
+.form-cell{
+    @extend %w100;
+    @extend %cp;
+    @extend %pr;
+    background: #f2f2f2;
+    margin-bottom: f(20);
+    height: f(90);
+    border-radius: f(16);
+    input,
+    select{
+        @extend %w100;
+        @extend %h100;
+        @extend %bsb;
+        @extend %pr;
+        @extend %c3;
+        font-size: f(40);
+        padding: 0 f(30);
+        background: transparent;
+        border: none;
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+    }
+    &.form-half{
+        width: 49%;
+    }
+}
+.form-placeholder{
+    @extend %h100;
+    @extend %df;
+    @extend %aic;
+    @extend %pa;
+    @extend %t0;
+    @extend %l0;
+    padding: 0 f(30);
+    font-size: f(40);
+    color: #a9a9a9;
 }

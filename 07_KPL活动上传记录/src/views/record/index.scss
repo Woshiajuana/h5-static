@@ -151,3 +151,72 @@
         @extend %h100;
     }
 }
+
+
+.popup-update{
+    @extend %pf;
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %w100;
+    @extend %h100;
+    @extend %t0;
+    @extend %l0;
+    overflow-y: auto;
+    z-index: 9;
+    background: rgba(0, 0, 0, .5);
+}
+.popup-update-inner{
+    width: f(900);
+    padding: f(40);
+    background-color: #fff;
+    border-radius: f(30);
+    h2{
+        @extend %tac;
+        @extend %c3;
+        font-size: f(46);
+    }
+    h3{
+        @extend %tac;
+        @extend %w100;
+        color: #02a650;
+        font-size: f(46);
+        margin-top: f(20);
+    }
+    .form-label{
+        line-height: 1.6;
+        margin-top: 0;
+    }
+    .form-cell{
+        margin-bottom: 0;
+    }
+}
+.popup-update-prompt{
+    @extend %c9;
+    font-size: f(40);
+}
+.popup-update-operate{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    margin-top: f(30);
+}
+.popup-update-button{
+    @extend %df;
+    @extend %aic;
+    @extend %jcc;
+    @extend %cfff;
+    @extend %cp;
+    @extend %bsb;
+    border-radius: f(10);
+    font-size: f(40);
+    width: f(300);
+    height: f(90);
+    margin: 0 f(40);
+    background-color: #02a650;
+    &.cancel{
+        border: 1px solid #999;
+        color: #999;
+        background-color: transparent;
+    }
+}
